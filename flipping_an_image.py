@@ -32,7 +32,7 @@ class Solution:
         :type A: List[List[int]]
         :rtype: List[List[int]]
         """
-                # Version 1
+        # Version 1
         # for i, outer in enumerate(A):
         #     for j, inner in enumerate(outer[::-1]):
         #         A[i][j] = {1: 0, 0: 1}[inner]
@@ -42,5 +42,5 @@ class Solution:
         #     A[i] = [{1: 0, 0: 1}[j] for j in unit[::-1]]
         # return A
         
-        # Version 3
+        # Version 3, for submitting
         return [[{1: 0, 0: 1}[i] for i in a[::-1]] for a in A]
