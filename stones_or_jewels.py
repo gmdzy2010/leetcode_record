@@ -24,11 +24,6 @@ import re
 
 class Solution:
     def numJewelsInStones(self, J, S):
-        """
-        :type J: str
-        :type S: str
-        :rtype: int
-        """
         counts = 0
         for j in list(J):
             counts += len(re.findall(r'(?=%s)' % j, S))
