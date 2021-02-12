@@ -29,7 +29,25 @@ def three_number_sum_hash(nums):
 
 
 def three_number_sum_double_pointer(sequence):
-    pass
+    length, result = len(sequence), []
+    sequence.sort()
+    for index_1 in range(length):
+        if sequence[index_1] > 0:
+            break
+        if index_1 > 0 and sequence[index_1] == sequence[index_1 - 1]:
+            continue
+        index_3 = length - 1
+        target = -sequence[index_1]
+        for index_2 in range(index_1 + 1, length):
+            if index_2 > index_1 + 1 and sequence[index_2] == sequence[index_2 - 1]:
+                continue
+            while index_2 < index_3 and sequence[index_2] + sequence[index_3] > target:
+                index_3 -= 1
+            if index_2 == index_3:
+                break
+            if sequence[index_2] + sequence[index_3] == target:
+                result.append([sequence[index_1], sequence[index_2], sequence[index_3]])
+    return result
 
 
 if __name__ == '__main__':
