@@ -32,8 +32,6 @@ def three_number_sum_double_pointer(sequence):
     length, result = len(sequence), []
     sequence.sort()
     for index_1 in range(length):
-        if sequence[index_1] > 0:
-            break
         if index_1 > 0 and sequence[index_1] == sequence[index_1 - 1]:
             continue
         index_3 = length - 1
