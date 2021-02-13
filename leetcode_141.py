@@ -11,7 +11,10 @@ def has_cycle_direct(head):
 
 def has_cycle_double_pointer(head):
     slow = fast = head
-    while slow and fast and fast.next:
+    # As the slow and fast node points to the same object, it's unnecessary to
+    # put slow into condition of the while loop.
+    # while slow and fast and fast.next:
+    while fast and fast.next:
         if fast.next == slow:
             return True
         else:
