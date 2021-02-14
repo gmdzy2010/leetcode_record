@@ -3,9 +3,6 @@ class ListNode:
     def __init__(self, value=0, next_node=None):
         self.value = value
         self.next_node = next_node
-    
-    def reverse(self, test):
-        return self.reverse(test)
 
 
 def reverse_linked_list_direct(head):
