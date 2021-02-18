@@ -1,3 +1,7 @@
+def get_first_position_standard_lib(string, pattern):
+    return string.find(pattern)
+
+
 def get_prefix_table(pattern):
     length = len(pattern)
     prefix_table = [0] * length
@@ -16,7 +20,7 @@ def get_prefix_table(pattern):
     return prefix_table
 
 
-def get_first_position(string, pattern):
+def get_first_position_kmp(string, pattern):
     string_length, pattern_length = len(string), len(pattern)
     if pattern_length == 0:
         return 0
