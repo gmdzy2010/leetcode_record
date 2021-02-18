@@ -1,3 +1,8 @@
+def repeated_substring_pattern_double_repeated(string):
+    # the string must exist in double-repeated-string.
+    return string in (string + string)[1:-1]
+
+
 def get_prefix_table(pattern):
     length = len(pattern)
     prefix_table = [0] * length
@@ -14,7 +19,7 @@ def get_prefix_table(pattern):
     return prefix_table
 
 
-def repeated_substring_pattern(string):
+def repeated_substring_pattern_kmp(string):
     length, prefix_table = len(string), get_prefix_table(string)
     
     # The length of max public string of prefix and suffix.
@@ -25,4 +30,4 @@ def repeated_substring_pattern(string):
 
 
 if __name__ == '__main__':
-    print(repeated_substring_pattern("asdfasdfasdf"))
+    print(repeated_substring_pattern_kmp("asdfasdfasdf"))
