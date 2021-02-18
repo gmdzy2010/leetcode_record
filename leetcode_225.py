@@ -36,3 +36,22 @@ class MyStack:
         Returns whether the stack is empty.
         """
         return not self._quene_1
+    
+    def __str__(self):
+        return str(self._quene_1)
+
+
+if __name__ == '__main__':
+    test_stack = MyStack()
+    test_stack.push(2)
+    test_stack.push(3)
+    test_stack.push(4)
+    test_stack.push(5)
+    test_stack.push(6)
+    print(test_stack)
+    test_stack.pop()
+    print(test_stack)
+    print(test_stack.top())
+    print(test_stack.empty())
+    test_stack.push(7)
+    print(test_stack)
