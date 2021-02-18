@@ -47,4 +47,5 @@ def get_first_position_kmp(string, pattern):
 
 
 if __name__ == '__main__':
-    print(get_first_position('hello', 'll'))
+    print(get_prefix_table("abababab"))
+    print(get_first_position_kmp('hello', 'll'))
