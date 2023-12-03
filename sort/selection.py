@@ -1,11 +1,22 @@
+"""
+_summary_
+"""
 from typing import List
 
 
-def selection_sort(arr: List[int | float]) -> List[int | float]:
+def selection(arr: List[int | float]) -> List[int | float]:
+    """_summary_
+
+    Args:
+        arr (List[int | float]): _description_
+
+    Returns:
+        List[int | float]: _description_
+    """
     if len(arr) == 1:
         return arr
 
-    for i in range(len(arr)):
+    for i, _ in enumerate(arr):
         min_index = i
         for j in range(i + 1, len(arr)):
             if arr[j] < arr[min_index]:
@@ -17,5 +28,5 @@ def selection_sort(arr: List[int | float]) -> List[int | float]:
 
 
 if __name__ == "__main__":
-    arr = [4, 1, 3, 5, 6, 8, 9, 2, 7]
-    print(selection_sort(arr))
+    input_arr = [4, 1, 3, 5, 6, 8, 9, 2, 7]
+    print(selection(input_arr))
