@@ -1,7 +1,7 @@
 from typing import List
 
 
-def insertion(arr: List[int | float]) -> List[int | float]:
+def main(arr: List[int | float]) -> List[int | float]:
     """插入排序，时间复杂度和数据分布有关系，平均为O(N * N)，最好为O(N)
     选定第一个元素作为左边区域，第二～N个元素作为右边区域，通过交换操作使得左边始终有序，则：
     * 左边最右侧元素left_last一定是左侧最大
@@ -32,4 +32,4 @@ def insertion(arr: List[int | float]) -> List[int | float]:
 
 if __name__ == "__main__":
     input_arr = [4, 1, 3, 5, 6, 8, 9, 2, 7]
-    print(insertion(input_arr))
+    print(main(input_arr))

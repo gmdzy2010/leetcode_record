@@ -1,7 +1,7 @@
 from typing import List
 
 
-def bubble(arr: List[int | float]) -> List[int | float]:
+def main(arr: List[int | float]) -> List[int | float]:
     """冒泡排序，时间复杂度为严格的O(N * N)
     每轮循环对比相邻两个元素的大小，较大的换到右侧，直到全部有序
     * 第一轮把最大值放到最右侧，缩小循环边界
@@ -24,4 +24,4 @@ def bubble(arr: List[int | float]) -> List[int | float]:
 
 if __name__ == "__main__":
     input_arr = [4, 1, 3, 5, 6, 8, 9, 2, 7]
-    print(bubble(input_arr))
+    print(main(input_arr))

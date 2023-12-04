@@ -4,7 +4,7 @@ _summary_
 from typing import List
 
 
-def selection(arr: List[int | float]) -> List[int | float]:
+def main(arr: List[int | float]) -> List[int | float]:
     """_summary_
 
     Args:
@@ -29,4 +29,4 @@ def selection(arr: List[int | float]) -> List[int | float]:
 
 if __name__ == "__main__":
     input_arr = [4, 1, 3, 5, 6, 8, 9, 2, 7]
-    print(selection(input_arr))
+    print(main(input_arr))
