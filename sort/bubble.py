@@ -1,20 +1,22 @@
-"""
-Bubble sort
-"""
 from typing import List
 
 
 def bubble(arr: List[int | float]) -> List[int | float]:
-    """_summary_
+    """冒泡排序，时间复杂度为严格的O(N * N)
+    每轮循环对比相邻两个元素的大小，较大的换到右侧，直到全部有序
+    * 第一轮把最大值放到最右侧，缩小循环边界
+    * 第二轮把次最大交换到次最右侧，缩小循环边界
+    * ...
+    * 循环结束，得到有序数组
 
     Args:
-        arr (List[int | float]): _description_
+        arr (List[int | float]): 未排序数组
 
     Returns:
-        List[int | float]: _description_
+        List[int | float]: 已排序数组
     """
     for i, _ in enumerate(arr):
-        for j in range(len(arr) - i - 1):
+        for j in range(len(arr) - 1 - i):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
