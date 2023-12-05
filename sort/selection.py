@@ -1,17 +1,18 @@
-"""
-_summary_
-"""
 from typing import List
 
 
 def main(arr: List[int | float]) -> List[int | float]:
-    """_summary_
+    """选择排序
+    - 时间复杂度：O(N * N)
+    - 空间复杂度：O(1)
+
+    不断地从右侧选出最小的值放到左侧，每轮循环区域向右缩小，最终完成排序
 
     Args:
-        arr (List[int | float]): _description_
+        arr (List[int | float]): 未排序数组
 
     Returns:
-        List[int | float]: _description_
+        List[int | float]: 已排序数组
     """
     if len(arr) == 1:
         return arr

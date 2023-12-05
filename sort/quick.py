@@ -2,14 +2,17 @@ from typing import List
 
 
 def main(arr: List[int | float]) -> List[int | float]:
-    """快速排序，时间复杂度O(N * logN)
-    选定最右侧元素作为划分阈值pivot，分别针对 >pivot 和 <=pivot的数字分区
+    """快速排序
+    - 时间复杂度：O(N * logN)
+    - 空间复杂度：O(N)
+
+    选定最右侧元素作为划分阈值pivot，分别针对 >pivot 和 <=pivot 的数字分区
 
     Args:
-        arr (List[int | float]): 未排序数组
+        - arr (List[int | float]): 未排序数组
 
     Returns:
-        List[int|float]: 已排序数组
+        - List[int|float]: 已排序数组
     """
     if len(arr) <= 1:
         return arr
