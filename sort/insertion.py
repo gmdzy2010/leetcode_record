@@ -34,5 +34,5 @@ def main(arr: List[int | float]) -> List[int | float]:
 
 
 if __name__ == "__main__":
-    input_arr = [4, 1, 3, 5, 6, 8, 9, 2, 7]
+    input_arr: List[int | float] = [4, 1, 3, 5, 6, 8, 9, 2, 7]
     print(main(input_arr))

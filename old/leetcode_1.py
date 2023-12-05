@@ -6,7 +6,7 @@ def two_sum(nums, target):
             return index, result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test = [1, 3, 9, 7]
     target = 12
     index, result = two_sum(test, target)

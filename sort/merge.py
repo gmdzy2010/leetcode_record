@@ -110,5 +110,5 @@ def merge(
 
 
 if __name__ == "__main__":
-    input_arr = [3, 1, 2, 4, 5, 6, 9, 7, 8]
+    input_arr: List[int | float] = [3, 1, 2, 4, 5, 6, 9, 7, 8]
     print(main(input_arr))
