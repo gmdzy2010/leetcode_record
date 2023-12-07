@@ -17,7 +17,7 @@ virtual_env = ".venv"
 py-version = [3, 12]
 
 [tool.pylint."MESSAGES CONTROL"]
-disable = ["C0114"]
+disable = ["C0114", "C0103"]
 
 [tool.pyright]
 pythonVersion = "3.12"
