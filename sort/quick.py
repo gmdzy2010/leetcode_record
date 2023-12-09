@@ -42,7 +42,8 @@ def partition(arr: List[int], left_index: int, right_index: int) -> int:
 
     获取已分区之后的临界区开始位置
 
-    - 选取当前区域 [left_index, right_index] 的最后一个数作为分区的阈值
+    - 选取当前区域 [left_index, right_index] 的最后一个数作为分区的阈值，随机选择位置更
+      好，这样可以防止数据分布影响阈值选择
     - 设定 <pivot 为左半区，左半区指针 ptr_l 初始在 left_index 区域左边的位置
     - 对当前区域元素进行遍历，比较每个元素和阈值的大小
         - 若当前值小于 pivot，左半区指针右移1，交换当前值和左半区指针指向的值
@@ -58,7 +59,7 @@ def partition(arr: List[int], left_index: int, right_index: int) -> int:
     Returns:
         - int: 临界区开始位置
     """
-    # * 出始选择右边界处的值作为划分区域的值
+    # * 出始选择右边界处的值作为划分域值
     pivot = arr[right_index]
 
     # * 设定 <pivot 区域指针处于左边界 left_index 左边（虚拟位置）
