@@ -62,13 +62,16 @@ def partition(arr: List[int], left_index: int, right_index: int) -> int:
     # * 出始选择右边界处的值作为划分域值
     pivot = arr[right_index]
 
-    # * 设定 <pivot 区域指针处于左边界 left_index 左边（虚拟位置）
+    # * <=pivot 区域的边界，初始处于左边界 left_index 左边
     ptr_l = left_index - 1
 
-    # * 依次对左右边界内的元素进行遍历，出现比pivot值小的，就将其移入 <pivot 区
+    # * 依次对左右边界内的元素进行遍历，出现比pivot值小的，就将其移入 <=pivot 区
     for i in range(left_index, right_index):
         if arr[i] <= pivot:
+            # 先扩大 <=pivot 区域
             ptr_l += 1
+
+            # 通过交换将当前元素移入 <=pivot 区
             arr[ptr_l], arr[i] = arr[i], arr[ptr_l]
 
     # * 交换临界区开始位置和右边界位置的值
