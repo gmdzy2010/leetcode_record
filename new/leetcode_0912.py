@@ -1,3 +1,4 @@
+from random import randrange
 from typing import List
 
 
@@ -19,6 +20,9 @@ def process(nums: List[int], L: int, R: int):
 
 
 def partition(nums: List[int], L: int, R: int) -> int:
+    rand_index = randrange(L, R)
+    nums[rand_index], nums[R] = nums[R], nums[rand_index]
+
     pivot = nums[R]
     P = L - 1
     for i in range(L, R):
