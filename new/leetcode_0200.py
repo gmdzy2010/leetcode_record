@@ -36,11 +36,11 @@ def infect(grid: List[List[str]], i: int, j: int, x_size: int, y_size: int):
     - grid[i][j] == 1 -> 在当前位置的上/下/左/右四个方向上递归感染
 
     Args:
-        matrix (List[List[str]]): 原始矩阵
-        i (int): x坐标
-        j (int): y坐标
-        x_size (int): x方向维度
-        y_size (int): y方向维度
+        - matrix (List[List[str]]): 原始矩阵
+        - i (int): x坐标
+        - j (int): y坐标
+        - x_size (int): x方向维度
+        - y_size (int): y方向维度
     """
     if i not in range(x_size) or j not in range(y_size) or grid[i][j] != "1":
         return
