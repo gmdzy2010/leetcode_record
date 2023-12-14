@@ -34,8 +34,7 @@ def main(nums: List[int], target: int) -> int:
         if nums[M] == target:
             return M
 
-        # * 根据旋转点落在左右半区内，存在存在两种不同的情况
-        # 左半区是顺序区间
+        # * 根据 nums[L] 和 nums[M] 的值来确定二分的边界，存在两种不同的情况
         # ! 注意这里必须是小于等于，否则会有一些边界情况失效
         if nums[L] <= nums[M]:
             # * target 在左半区，M - 1 <- R
@@ -57,5 +56,5 @@ def main(nums: List[int], target: int) -> int:
 
 
 if __name__ == "__main__":
-    input_nums = [3, 4, 5, 6, 7, 8, 9, 11, 14, 0, 1, 2]
+    input_nums = [4, 5, 6, 7, 8, 9, 11, 14, 0, 1, 2, 3]
     print(main(input_nums, 1))
