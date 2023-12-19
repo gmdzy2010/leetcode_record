@@ -9,10 +9,10 @@ class ListNode:
         self.next: Self | None = _next
 
     def __str__(self) -> str:
-        return f"node -> {self.val}"
+        return f"{self.val} -> {self.next}"
 
     def __repr__(self) -> str:
-        return f"node -> {self.val}"
+        return f"{self.val} -> {self.next}"
 
 
 def reverse_1(head: ListNode) -> ListNode:
