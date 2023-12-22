@@ -1,5 +1,4 @@
-from collections import deque
-from typing import Deque, Self
+from typing import Self
 
 
 class TreeNode:
@@ -16,68 +15,51 @@ class TreeNode:
         self.right: Self | None = right
 
 
-def main(root: TreeNode | None):
-    """判断二叉树是否对称
+def main(root: TreeNode | None) -> bool:
+    """判断二叉树是否平衡
 
     Args:
         - root (TreeNode | None): 根节点
 
     Returns:
-        - bool: 是否对称的结果
+        - bool: 结果
     """
-    ans1 = get_max_depth_recur(root)
-    print(ans1)
+    res = get_height(root)
 
-    ans2 = get_max_depth_queue(root)
-    print(ans2)
+    return True if res != -1 else False
 
 
-def get_max_depth_recur(node: TreeNode | None) -> int:
-    """二叉树的最大深度
+def get_height(node: TreeNode | None) -> int:
+    """求二叉树的高度
+
+    二叉树高度
+    - 从当前节点到叶子节点的节点数量
 
     Args:
-        node (TreeNode | None): _description_
+        node (TreeNode | None): 当前节点
 
     Returns:
-        int: _description_
+        int: 二叉树的当前高度，如果左右子树的高度差大于1（不平衡），则返回 -1
     """
     if not node:
         return 0
 
-    left_depth = get_max_depth_recur(node.left)
-    right_depth = get_max_depth_recur(node.right)
+    left_height = get_height(node.left)
+    right_height = get_height(node.right)
 
-    return 1 + max(left_depth, right_depth)
+    # * 如果左右子树不平衡，那么整棵树不平衡
+    if left_height == -1:
+        return -1
+    if right_height == -1:
+        return -1
 
+    # * 如果左右子树高度差大于1，也不平衡，若高度差小于等于1返回左右子树的高度
+    if abs(left_height - right_height) > 1:
+        res = -1
+    else:
+        res = 1 + max(left_height, right_height)
 
-def get_max_depth_queue(root: TreeNode | None) -> int:
-    """二叉树的最大深度
-
-    使用二叉树层序遍历的方法，层数就是最大深度
-
-    Args:
-        root (TreeNode | None): 根节点
-
-    Returns:
-        int: 二叉树最大深度
-    """
-    if not root:
-        return 0
-
-    ans = 0
-    nodes: Deque[TreeNode] = deque()
-    nodes.appendleft(root)
-
-    while nodes:
-        ans += 1
-        for _ in range(len(nodes)):
-            node = nodes.pop()
-            if node.left:
-                nodes.appendleft(node.left)
-            if node.right:
-                nodes.appendleft(node.right)
-
-    return ans
+    return res
 
 
 if __name__ == "__main__":
