@@ -26,7 +26,7 @@ def main(root: TreeNode | None) -> bool:
     """
     res = get_height(root)
 
-    return True if res != -1 else False
+    return res != -1
 
 
 def get_height(node: TreeNode | None) -> int:
@@ -68,6 +68,5 @@ if __name__ == "__main__":
     test_root.right = TreeNode(2)
     test_root.left.left = TreeNode(3)
     test_root.left.right = TreeNode(4)
-    test_root.right.left = TreeNode(4)
-    test_root.right.right = TreeNode(3)
-    main(test_root)
+    test_root.left.left.left = TreeNode(5)
+    print(main(test_root))
