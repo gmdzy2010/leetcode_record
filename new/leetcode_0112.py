@@ -1,4 +1,4 @@
-from typing import Self
+from typing import List, Self, Tuple
 
 
 class TreeNode:
@@ -24,13 +24,16 @@ def main(root: TreeNode | None, target_path_sum: int):
     ans1 = has_sum_path_recur(root, target_path_sum)
     print(ans1)
 
+    ans2 = has_sum_path_stack(root, target_path_sum)
+    print(ans2)
+
 
 def has_sum_path_recur(root: TreeNode | None, target_path_sum: int) -> bool:
     """判断路径总和，递归版本
 
     Args:
         root (TreeNode | None): 根节点
-        sum (int): 目标路径总和
+        target_path_sum (int): 目标路径总和
 
     Returns:
         bool: 是否存在
@@ -47,6 +50,38 @@ def has_sum_path_recur(root: TreeNode | None, target_path_sum: int) -> bool:
     right_has_sum = has_sum_path_recur(root.right, target_path_sum - root.val)
 
     return left_has_sum or right_has_sum
+
+
+def has_sum_path_stack(root: TreeNode | None, target_path_sum: int) -> bool:
+    """判断路径总和，栈版本
+
+    Args:
+        root (TreeNode | None): 根节点
+        target_path_sum (int): 目标路径总和
+
+    Returns:
+        bool: 是否存在目标路径总和为 target_path_sum 的路径
+    """
+    if not root:
+        return False
+
+    # * 使用栈记录当前节点和当前的节点值累加和
+    stack: List[Tuple[TreeNode, int]] = []
+    stack.append((root, root.val))
+    while stack:
+        node, curr_sum = stack.pop()
+
+        # * 当前节点的左右节点为空且累加和等于目标值，找到了目标路径
+        if not node.left and not node.right and target_path_sum == curr_sum:
+            return True
+
+        # * 继续往下找
+        if node.left:
+            stack.append((node.left, curr_sum + node.left.val))
+        if node.right:
+            stack.append((node.right, curr_sum + node.right.val))
+
+    return False
 
 
 if __name__ == "__main__":
