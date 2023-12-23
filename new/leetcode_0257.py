@@ -38,10 +38,35 @@ def get_path_recur(root: TreeNode | None) -> List[str]:
         - List[str]: 所有路径的字符串表示
     """
     ans: List[str] = []
+    visited_path = ""
     if not root:
         return ans
 
+    transversal(root, visited_path, ans)
+
     return ans
+
+
+def transversal(node: TreeNode, visited_path: str, ans: List[str]):
+    """路径回溯（递归）函数
+
+    Args:
+        node (TreeNode): 当前节点，注意不为空
+        visited_path (str): 已经经过的路径
+        ans (List[str]): 路径结果
+    """
+    visited_path += str(node.val)
+
+    # * 左右节点为空时，停止回溯（即回到上一层函数，也回到父节点），结果列表记录下当前节点
+    if not node.left and not node.right:
+        ans.append(visited_path)
+        return
+
+    # * 只要左右节点有一个不为空，就继续向下找
+    if node.left:
+        transversal(node.left, visited_path + "->", ans)
+    if node.right:
+        transversal(node.right, visited_path + "->", ans)
 
 
 def get_path_stack(root: TreeNode | None) -> List[str]:
