@@ -21,7 +21,7 @@ def main(root: TreeNode | None, sub_root: TreeNode | None):
     Args:
         - root (TreeNode | None): 根节点
     """
-    ans = (root, sub_root)
+    ans = is_sub_tree(root, sub_root)
     print(ans)
 
 
@@ -76,3 +76,17 @@ def is_same_tree(p: TreeNode | None, q: TreeNode | None) -> bool:
     right_is_same = is_same_tree(p.right, q.right)
 
     return val_is_same and left_is_same and right_is_same
+
+
+if __name__ == "__main__":
+    test_root_1 = TreeNode(1)
+    test_root_1.left = TreeNode(2)
+    test_root_1.right = TreeNode(2)
+    test_root_1.left.left = TreeNode(3)
+    test_root_1.left.right = TreeNode(4)
+
+    test_root_2 = TreeNode(2)
+    test_root_2.left = TreeNode(3)
+    test_root_2.right = TreeNode(4)
+
+    main(test_root_1, test_root_2)
