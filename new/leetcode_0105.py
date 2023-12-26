@@ -20,6 +20,9 @@ def main(preorder: List[int], inorder: List[int]):
     - 递归版本
     - 栈版本
 
+    具体步骤
+    - 在中序遍历中定位到根节点，分别获取左右子树节点数目
+
     Args:
         - root (TreeNode | None): 根节点
     """
@@ -34,13 +37,15 @@ def recover_tree_recur(
     """从前中序数组重建二叉树
 
     Args:
-        preorder (List[int]): 前序遍历数组
-        inorder (List[int]): 中序遍历数组
+        - preorder (List[int]): 前序遍历数组
+        - inorder (List[int]): 中序遍历数组
 
     Returns:
-        TreeNode | None: 恢复的二叉树
+        - TreeNode | None: 恢复的二叉树
     """
     size = len(preorder)
+
+    # * 为更快找中序遍历的根节点位置，将中序遍历的节点与位置记录成哈希表
     index_map = {v: i for i, v in enumerate(inorder)}
 
     return construct_tree(
@@ -72,7 +77,7 @@ def construct_tree(
         - inorder_right (int): 中序遍历数组的右边界
 
     Returns:
-        TreeNode | None: 构建的树
+        - TreeNode | None: 构建的树
     """
     if preorder_left > preorder_right:
         return None
