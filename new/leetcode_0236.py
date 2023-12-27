@@ -14,6 +14,18 @@ class TreeNode:
         self.left: Self | None = left
         self.right: Self | None = right
 
+    def __str__(self) -> str:
+        return f"{self.val}"
+
+    def __repr__(self) -> str:
+        if self.left and self.right:
+            return f"{self.left} <- node: {self.val} -> {self.right}"
+        if self.left and not self.right:
+            return f"{self.left} <- node: {self.val} -> _"
+        if not self.left and self.right:
+            return f"_ <- node: {self.val} -> {self.right}"
+        return f"_ <- node: {self.val} -> _"
+
 
 def main(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode | None:
     """最近公共祖先

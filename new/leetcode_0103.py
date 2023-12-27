@@ -15,6 +15,18 @@ class TreeNode:
         self.left: Self | None = left
         self.right: Self | None = right
 
+    def __str__(self) -> str:
+        return f"{self.val}"
+
+    def __repr__(self) -> str:
+        if self.left and self.right:
+            return f"{self.left} <- node: {self.val} -> {self.right}"
+        if self.left and not self.right:
+            return f"{self.left} <- node: {self.val} -> _"
+        if not self.left and self.right:
+            return f"_ <- node: {self.val} -> {self.right}"
+        return f"_ <- node: {self.val} -> _"
+
 
 def tranverse_in_zigzag_levelorder_1(root: TreeNode | None) -> List[List[int]]:
     """二叉树的zigzag层序遍历

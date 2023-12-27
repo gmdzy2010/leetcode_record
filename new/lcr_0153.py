@@ -14,28 +14,16 @@ class TreeNode:
         self.left: Self | None = left
         self.right: Self | None = right
 
-    def __str__(self) -> str:
-        return f"{self.val}"
-
-    def __repr__(self) -> str:
-        if self.left and self.right:
-            return f"{self.left} <- node: {self.val} -> {self.right}"
-        if self.left and not self.right:
-            return f"{self.left} <- node: {self.val} -> _"
-        if not self.left and self.right:
-            return f"_ <- node: {self.val} -> {self.right}"
-        return f"_ <- node: {self.val} -> _"
-
 
 def path_target(root: TreeNode | None, target: int) -> List[List[int]]:
-    """二叉树路径总和，栈版本
+    """_summary_
 
     Args:
-        root (TreeNode | None): 根节点
-        target (int): 目标值
+        root (TreeNode | None): _description_
+        target (int): _description_
 
     Returns:
-        List[List[int]]: 路径结果
+        List[List[int]]: _description_
     """
     ans: List[List[int]] = []
     if not root:
