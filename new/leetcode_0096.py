@@ -1,6 +1,4 @@
-from collections import deque
-from math import inf
-from typing import Deque, Self, Tuple
+from typing import Self
 
 
 class TreeNode:
@@ -29,41 +27,38 @@ class TreeNode:
         return f"_ <- node: {self.val} -> _"
 
 
-def get_max_width(root: TreeNode | None) -> int | float:
-    """二叉树的最大宽度
+def get_num_of_bst(n: int) -> int | float:
+    """不同的BST个数
 
-    使用二叉树层序遍历模版，计算每一层最右侧索引和最左侧索引的差值，再加一即可
+    卡塔兰数
+    - G(n): 长度为 n 的序列能构成的不同二叉搜索树的个数
+    - F(i, n): 以 i 为根、序列长度为 n 的不同二叉搜索树个数 (1 <= i <= n)
+
+    根据推导存在：
+    - F(i, n) = G(i − 1) * G(n − i)
+        - i − 1 -> 以 i 为根的左子树节点个数
+        - n - i -> 以 i 为根的右子树节点个数
+    - 说明 F(i, n) 取决于左/右子树节点能构成的二叉搜索树个数
+
+    对整个序列上的 F(i, n) 求和即可得到 G(n)
 
     Args:
-        - root (TreeNode | None): 二叉树根节点
+        - n (int): 有序数组长度
 
     Returns:
-        - int: 最大距离
+        - int | float: 个数
     """
-    ans = 0
-    if not root:
-        return ans
+    G = [0] * (n + 1)
 
-    nodes: Deque[Tuple[TreeNode, int]] = deque()
-    nodes.appendleft((root, 1))
-    while nodes:
-        # * 初始化每一层的最小/最大节点索引
-        min_index, max_index = inf, 0
+    # * 根节点为空和只有根节点都可以有一个树
+    G[0], G[1] = 1, 1
 
-        # * 处理当前层
-        for _ in range(len(nodes)):
-            node, index = nodes.pop()
-            # * node 节点索引为 index ，那么其左节点索引为 2 * index
-            if node.left:
-                nodes.appendleft((node.left, 2 * index))
+    for i in range(2, n + 1):
+        for j in range(1, i + 1):
+            G[i] += G[j - 1] * G[i - j]
 
-            # * 右节点索引为 2 * index + 1
-            if node.right:
-                nodes.appendleft((node.right, 2 * index + 1))
+    return G[n]
 
-            min_index = min(min_index, index)
-            max_index = max(max_index, index)
 
-        ans = max(ans, max_index - min_index + 1)
-
-    return ans
+if __name__ == "__main__":
+    get_num_of_bst(4)
