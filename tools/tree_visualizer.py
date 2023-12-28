@@ -103,44 +103,53 @@ class TreeVisualizer:
         # * 计算树的高度
         H = self.height(root)
 
-        # * 整体打印的是一个字符串矩阵
+        # * 整体打印的是一个字符串矩阵，矩阵长度是两倍高度，高度是？
         matrix: List[List[str]] = [
             [self.symbol] * (2**H) * 2 for _ in range(H * 2)
         ]
-        col_idx: int = 2**H
-        levels: List[List[Tuple[TreeNode, int]]] = [[(root, col_idx)]]
+        levels: List[List[Tuple[TreeNode, int]]] = [[(root, 2**H)]]
         for l in range(H):
-            curr_lvl = levels[l]
-            next_lvl = []
-            for node, col_idx in curr_lvl:
+            curr_level = levels[l]
+
+            # * 保存下一层节点和节点的坐标
+            next_level: List[Tuple[TreeNode, int]] = []
+
+            for node, col_idx in curr_level:
                 # * matrx 的偶数行是节点值所在行，
                 matrix[l * 2][col_idx] = str(node.val)
 
                 # * matrix 的奇数行是连接父子节点的字符串行
                 conn_row = matrix[l * 2 + 1]
 
-                # * 处理
+                # * 处理左节点
                 if node.left:
-                    lft_idx = col_idx - 2 ** (H - l - 1)
-                    next_lvl.append((node.left, lft_idx))
-                    # connector row for children
+                    left_idx = col_idx - 2 ** (H - l - 1)
+                    next_level.append((node.left, left_idx))
+
+                    # * 给
                     conn_row[col_idx] = "┘"
-                    conn_row[lft_idx] = "┌"
-                    for j in range(lft_idx + 1, col_idx):
+
+                    # * 左节点的上方字符串使用 ┌ 表示
+                    conn_row[left_idx] = "┌"
+
+                    # * 给左节点和当前节点之间用 - 连接
+                    for j in range(left_idx + 1, col_idx):
                         conn_row[j] = "─"
 
+                # * 右节点处理同理
                 if node.right:
-                    rt_idx = col_idx + 2 ** (H - l - 1)
-                    next_lvl.append((node.right, rt_idx))
+                    right_idx = col_idx + 2 ** (H - l - 1)
+                    next_level.append((node.right, right_idx))
                     conn_row[col_idx] = "└"
-                    conn_row[rt_idx] = "┐"
-                    for j in range(col_idx + 1, rt_idx):
+                    conn_row[right_idx] = "┐"
+                    for j in range(col_idx + 1, right_idx):
                         conn_row[j] = "─"
 
+                # * 当左右节点都有时，字符串使用 ┴
                 if node.left and node.right:
                     conn_row[col_idx] = "┴"
 
-            levels.append(next_lvl)
+            levels.append(next_level)
 
         matrix = self.left_align(matrix, compact)
         for row in matrix:
