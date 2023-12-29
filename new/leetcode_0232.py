@@ -22,15 +22,19 @@ class MyQueue:
         Returns:
             int: 出队元素
         """
-        # * 只有 stack_out 为空才会从 stack_in 导入数据
-        if not self.stack_out:
-            # * 从stack_in 出去的元素全部进入 stack_out，同时也实现了逆序入栈顺序
-            while self.stack_in:
-                self.stack_out.append(self.stack_in.pop())
+        # * 如果 stack_out 不为空，直接出栈就可以
+        if self.stack_out:
+            return self.stack_out.pop()
 
-        res = self.stack_out.pop()
+        # * 如果队列没有加入过元素就出栈，意味着 入栈队列 stack_in 为空
+        if not self.stack_in:
+            return -1
 
-        return res
+        # * 逆序所有 stack_in 中的元素，保证队列的先进先出性质
+        while self.stack_in:
+            self.stack_out.append(self.stack_in.pop())
+
+        return self.stack_out.pop()
 
     def peek(self) -> int:
         """返回队列头部元素
