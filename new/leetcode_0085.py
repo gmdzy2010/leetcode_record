@@ -1,7 +1,7 @@
 from typing import List
 
 
-def maximalRectangle(matrix: List[List[str]]) -> int:
+def main(matrix: List[List[str]]) -> int:
     """求矩阵最大矩形面积
 
     Args:
@@ -19,9 +19,11 @@ def maximalRectangle(matrix: List[List[str]]) -> int:
     for y in range(y_size):
         for x in range(x_size):
             dot = matrix[y][x]
+
+            # * 只要当前位置不是 1，就将之前在 y 方向上累加的高度清空
             heights[x] = heights[x] + 1 if dot == "1" else 0
 
-        # * 对于每一层都有一个heights数组
+        # * 对于每一层 heights 数组都有可能变化，都计算一遍最大矩形面积
         ans = max(ans, largestRectangleArea(heights))
 
     return ans
@@ -63,3 +65,13 @@ def largestRectangleArea(heights: List[int]) -> int:
         stack.append(i)
 
     return ans
+
+
+if __name__ == "__main__":
+    test_matrix = [
+        ["1", "0", "1", "0", "0"],
+        ["1", "0", "1", "1", "1"],
+        ["1", "1", "1", "1", "1"],
+        ["1", "0", "0", "1", "0"],
+    ]
+    main(test_matrix)
