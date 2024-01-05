@@ -1,4 +1,14 @@
-def main(s: str) -> bool:
+def main(s: str):
+    """验证回文字符串
+
+    Args:
+        - s (str): 原字符串
+    """
+    ans1 = is_palindrome_2pointers(s)
+    print(ans1)
+
+
+def is_palindrome_2pointers(s: str) -> bool:
     """验证回文字符串，双指针法
 
     Args:
@@ -24,6 +34,25 @@ def main(s: str) -> bool:
                 return False
             L += 1
             R -= 1
+
+    return True
+
+
+def is_palindrome_stack(s: str) -> bool:
+    """验证回文字符串，栈法
+
+    Args:
+        - s (str): 原字符串
+
+    Returns:
+        - bool: 验证结果
+    """
+    stack = [c for c in s if c.isalnum()]
+
+    for c in s:
+        if c.isalnum():
+            if c.lower() != stack.pop().lower():
+                return False
 
     return True
 
