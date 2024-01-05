@@ -7,6 +7,9 @@ def main(s: str):
     ans1 = is_palindrome_2pointers(s)
     print(ans1)
 
+    ans2 = is_palindrome_stack(s)
+    print(ans2)
+
 
 def is_palindrome_2pointers(s: str) -> bool:
     """验证回文字符串，双指针法
