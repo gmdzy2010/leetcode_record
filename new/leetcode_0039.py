@@ -18,7 +18,7 @@ def main(candidates: List[int], target: int):
     res2: List[int] = []
 
     backtracking_cut(sorted(candidates), target, 0, 0, res2, ans2)
-    print(ans1)
+    print(ans2)
 
 
 def backtracking(
