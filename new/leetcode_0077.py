@@ -1,7 +1,7 @@
 from typing import List
 
 
-def main(n: int, k: int) -> List[List[int]]:
+def main(n: int, k: int):
     """数字组合
 
     - 回溯法
@@ -14,15 +14,19 @@ def main(n: int, k: int) -> List[List[int]]:
     Returns:
         - List[List[int]]: 所有组合结果列表
     """
-    ans: List[List[int]] = []
+    ans1: List[List[int]] = []
 
     # * 保留每个组合的结果
-    path: List[int] = []
+    path1: List[int] = []
 
-    # backtracking(n, k, 1, path, ans)
-    backtracking_cut(n, k, 1, path, ans)
+    backtracking(n, k, 1, path1, ans1)
+    print(ans1)
 
-    return ans
+    # * 剪枝优化
+    ans2: List[List[int]] = []
+    path2: List[int] = []
+    backtracking_cut(n, k, 1, path2, ans2)
+    print(ans2)
 
 
 def backtracking(
@@ -56,6 +60,7 @@ def backtracking(
         backtracking(n, k, i + 1, path, ans)
 
         # * 数字填进去呢要记得再弹出来，否则下一轮循环将会多一个数字在结果中
+        # ! 回溯的本质是横向的枚举，所以没有回撤操作意味着上一轮的横向枚举影响到了下一轮的横向枚举
         path.pop()
 
 
@@ -98,4 +103,4 @@ def backtracking_cut(
 
 
 if __name__ == "__main__":
-    print(main(5, 2))
+    main(5, 3)
