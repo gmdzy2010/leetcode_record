@@ -2,56 +2,56 @@ from typing import List
 
 
 def main(nums: List[int]) -> List[List[int]]:
-    """全排列问题
-
-    使用回溯算法处理
+    """排列问题，回溯法
 
     Args:
-        nums (List[int]): 原数组
+        - nums (List[int]): 原数组
 
     Returns:
-        List[List[int]]: 原数所有可能的排列
+        - List[List[int]]: 所有可能的排列
     """
+    visited: List[int] = [0] * len(nums)
+    res: List[int] = []
     ans: List[List[int]] = []
-    size = len(nums)
-    if not size:
-        return ans
 
-    back_track(nums, size, ans)
+    backtracking(nums, visited, res, ans)
 
     return ans
 
 
-def back_track(
+def backtracking(
     nums: List[int],
-    size: int,
+    visited: List[int],
+    res: List[int],
     ans: List[List[int]],
-    start_at: int = 0,
 ):
-    """回溯处理函数
+    """回溯函数
 
     Args:
-        nums (List[int]): 原数组
-        size (int): 原数组长度
-        ans (List[List[int]]): 结果
-        first (int, optional): 开始的位置. Defaults to 0.
+        - nums (List[int]): 原数组
+        - visited (List[int]): 标记元素是否被访问过
+        - res (List[int]): 可能的排列
+        - ans (List[List[int]]): 所有可能的排列
     """
-    # * 当遍历到数组边界，也就是数字填写完成，就停止回溯
-    if start_at == size:
-        ans.append(nums[:])
-
+    if len(res) == len(nums):
+        ans.append(res[:])
         return
 
-    # * 对数组的每个位置进行填充，每填充一次，下个位置的数字继续进入回溯
-    for i in range(start_at, size):
-        # * 使用交换的方式填数字
-        nums[start_at], nums[i] = nums[i], nums[start_at]
+    for i, n in enumerate(nums):
+        # * 跳过所有已经使用过的元素
+        if visited[i] == 1:
+            continue
 
-        # * 填完当前数字，继续填下一个数字
-        back_track(nums, size, ans, start_at + 1)
+        # * 用过一个标记元素就标记为已访问
+        res.append(n)
+        visited[i] = 1
 
-        # * 由于使用的是原始的数组，需要将交换更改回撤
-        nums[i], nums[start_at] = nums[start_at], nums[i]
+        # ! 全排列问题中，所有元素都可以全部选择，所以每次回溯都必须从0开始找
+        backtracking(nums, visited, res, ans)
+
+        # * 回撤
+        res.pop()
+        visited[i] = 0
 
 
 if __name__ == "__main__":
