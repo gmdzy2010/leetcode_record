@@ -38,6 +38,10 @@ def backtracking(
         return
 
     for i, n in enumerate(nums):
+        # ! 判断上个重复元素位置是否被访问过并且和当前元素相等
+        if i > 0 and n == nums[i - 1] and visited[i - 1] == 1:
+            continue
+
         # * 跳过所有已经使用过的元素
         if visited[i] == 1:
             continue
@@ -55,5 +59,5 @@ def backtracking(
 
 
 if __name__ == "__main__":
-    input_arr = [1, 2, 3, 4]
+    input_arr = [1, 2, 2, 3]
     print(main(input_arr))
