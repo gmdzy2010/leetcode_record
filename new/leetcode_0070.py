@@ -24,6 +24,30 @@ def main(n: int) -> int:
     return dp[n]
 
 
+def main_1(n: int) -> int:
+    """爬楼梯，滚动数组
+
+    Args:
+        - n (int): 数字
+
+    Returns:
+        - int: 总共的方案
+    """
+    if n < 2:
+        return n
+
+    # * 滚动初始化
+    dp_1, dp_2 = 1, 2
+
+    for _ in range(3, n + 1):
+        dp_i = dp_1 + dp_2
+
+        # * 下一轮计算的 dp_1, dp_2 引用本轮的 dp_2, dp_i
+        dp_1, dp_2 = dp_2, dp_i
+
+    return dp_2
+
+
 def main_2(n: int) -> int:
     """爬特定楼梯
 
@@ -50,6 +74,21 @@ def main_2(n: int) -> int:
         dp[i] = dp[i - 2] + dp[i - 1] if i % 7 != 0 else 0
 
     return dp[n]
+
+
+def main_3(n: int) -> int:
+    """爬楼梯，矩阵快速幂
+
+    Args:
+        - n (int): 数字
+
+    Returns:
+        - int: 总共的方案
+    """
+    if n < 2:
+        return n
+
+    return n
 
 
 if __name__ == "__main__":
