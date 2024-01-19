@@ -7,9 +7,6 @@ def main(s: str, wordDict: List[str]):
     Args:
         - s (str): 原字符串
         - wordDict (List[str]): 备选单词列表
-
-    Returns:
-        - bool: 是否找到了单词
     """
 
     # * 常规的回溯，会超时
@@ -21,6 +18,9 @@ def main(s: str, wordDict: List[str]):
     words = set(wordDict)
     ans2 = backtracking_memory(s, 0, words, memory)
     print(ans2)
+
+    ans3 = word_break_dp(s, wordDict)
+    print(ans3)
 
 
 def backtracking(s: str, start: int, words: List[str], res: List[str]) -> bool:
@@ -91,6 +91,34 @@ def backtracking_memory(
     memory[start] = -1
 
     return False
+
+
+def word_break_dp(s: str, wordDict: List[str]) -> bool:
+    """DP-完全背包
+
+    Args:
+        - s (str): 原字符串
+        - wordDict (List[str]): 备选单词列表
+
+    Returns:
+        - bool: 是否找到了单词
+    """
+    words = set(wordDict)
+    size = len(s)
+
+    # * dp[i] 代表长度为 i 的字符串是否可以由字典中的单词拼出来
+    dp = [False] * (size + 1)
+
+    # ! 仅为了推导公式，没有实际意义
+    dp[0] = True
+
+    for i in range(1, size + 1):
+        for j in range(i):
+            word = s[j:i]
+            if word in words and dp[j]:
+                dp[i] = True
+
+    return dp[-1]
 
 
 if __name__ == "__main__":

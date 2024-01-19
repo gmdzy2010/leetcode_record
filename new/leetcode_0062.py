@@ -9,7 +9,8 @@ def main(m: int, n: int) -> int:
         - int: 从 (0, 0) 到 (m - 1, n - 1) 的不同路径数量
     """
     # * dp[i][j] 代表 从 (0, 0) 到 (i, j) 共有多少条路径
-    dp = [[0] * n] * m
+    # ! 错误做法 dp = [[0] * n] * m
+    dp = [[0 for _ in range(n)] for _ in range(m)]
 
     # ! 注意机器人只能向下或者向右行走
     # * 从 (i, 0) 到 (i, j) 只有 1 条路径
