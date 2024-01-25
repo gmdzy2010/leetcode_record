@@ -26,14 +26,14 @@ def main(nums: List[int]) -> int:
         if nums[i] > 0:
             dp[i][0] = min(nums[i], dp[i - 1][0] * nums[i])
             dp[i][1] = max(nums[i], dp[i - 1][1] * nums[i])
+
+        # * 最大的正数乘以一个负数成为最小的负数，这个最小的负数在遇到后续的负数时有可能
+        # * 变成最大正数
         else:
             dp[i][0] = min(nums[i], dp[i - 1][1] * nums[i])
             dp[i][1] = max(nums[i], dp[i - 1][0] * nums[i])
 
-    # * 从最终计算结果中取最大值
-    ans = dp[0][1]
-    for i in range(1, size):
-        ans = max(ans, dp[i][1])
+    ans = max(n[1] for n in dp)
 
     return ans
 
