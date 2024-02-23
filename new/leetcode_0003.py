@@ -26,40 +26,66 @@ def main(string: str) -> int:
     Returns:
         - int: 无重复字符的最长子串长度
     """
-    string_len = len(string)
-    if string_len < 2:
-        return string_len
+    size = len(string)
+    if size < 2:
+        return size
 
     # * 用集合存储当前窗口内的无重复字符
     unique: Set[str] = set()
 
     # * 当前无重复字符子串最大长度
-    max_length = 0
+    ans = 0
 
     # * 右指针
     R = 0
 
     # * 用左指针 L 在整个字符上遍历
-    for L in range(string_len):
+    for L in range(size):
         # * 移动 R
         # 当 R 处字符不在窗口字符集合中时加入，并继续向右找，到 R 处字符已经在集合中时停止
         # 实际上循环结束的时候，右指针已经到了下一个位置
-        while R < string_len and string[R] not in unique:
+        while R < size and string[R] not in unique:
             unique.add(string[R])
             R += 1
 
         # * 此时的子串长度即为以L开头的无重复字符子串最大长度
-        max_length = max(max_length, R - L)
+        ans = max(ans, R - L)
 
         # * 如果 L 之后的子串长度已经小于或者等于最大无重复字符子串长度，没必要再找了
-        if string_len - L + 1 <= max_length:
-            return max_length
+        if size - L + 1 <= ans:
+            return ans
 
         # * 从窗口字符集合中移除 L 处字符
         # 为下一轮寻找以 L + 1 处字符开头的无重复字符子串做准备
         unique.remove(string[L])
 
-    return max_length
+    return ans
+
+
+def dismantlingAction(arr: str) -> int:
+    """无重复字符的最长子串
+
+    Args:
+        - arr (str): 原字符串
+
+    Returns:
+        - int: 无重复字符的最长子串长度
+    """
+    size = len(arr)
+    if not size:
+        return 0
+
+    ans = 1
+    S, F = 0, 0
+    while F < size - 1:
+        F += 1
+        if arr[F] not in arr[S:F]:
+            ans = max(ans, F - S + 1)
+        else:
+            while arr[F] in arr[S:F]:
+                S += 1
+
+    return ans
 
 
 if __name__ == "__main__":
