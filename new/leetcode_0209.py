@@ -35,16 +35,15 @@ def main(nums: List[int], target: int) -> int:
         while total >= target:
             ans = min(ans, end - start + 1)
 
-            # * 计算完本次的结果后，累加和要减掉窗口开始位置
+            # * 左边界右移看看还有没有符合条件的更小长度，注意累加和减掉移出去的数组元素
             total -= nums[start]
-
-            # * 窗口向前走
             start += 1
 
-        # * 结束位置向前走
         end += 1
 
-    return 0 if ans == size + 1 else ans
+    # * 当遍历完数组后，结果已经超过数组长度，说明不存在这样的连续数组
+    return 0 if ans > size else ans
+    # return 0 if ans == size + 1 else ans
 
 
 if __name__ == "__main__":
