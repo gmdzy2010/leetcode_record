@@ -1,4 +1,4 @@
-from typing import Self, Tuple
+from typing import Self
 
 
 class ListNode:
@@ -16,48 +16,27 @@ class ListNode:
 
 
 def main(head: ListNode | None) -> ListNode | None:
-    """两两交换链表中的节点
+    """两两交换链表节点
 
     Args:
-        head (ListNode | None): 头节点
+        - head (ListNode | None): 头节点
 
     Returns:
-        ListNode | None: 交换操作之后的节点
+        - ListNode | None: 两两交换之后的头节点
     """
-    if not head:
-        return head
+    dummy = ListNode()
+    dummy.next = head
+    curr = head
 
-    dummy = ListNode(val=-1, _next=head)
-    curr = dummy
-    first_node = head
-    second_node = head.next
+    while curr and curr.next and curr.next.next:
+        node1 = curr.next
+        node2 = curr.next.next
 
-    while curr and first_node and second_node:
-        _next = second_node.next
-        first_node, second_node = swap(first_node, second_node)
-        curr.next = first_node
+        curr.next = node2
+        node1.next = node2.next
+        node2.next = node1
 
-        first_node = _next
-        if _next:
-            second_node = _next.next
-
-        curr = curr.next.next
+        # * 此时的node1为未交换节点的前一个节点
+        curr = node1
 
     return dummy.next
-
-
-def swap(node1: ListNode, node2: ListNode) -> Tuple[ListNode, ListNode]:
-    """交换两个相邻节点
-
-    Args:
-        node1 (ListNode): 节点1
-        node2 (ListNode): 节点2
-
-    Returns:
-        Tuple[ListNode, ListNode]: 交换后的节点
-    """
-    _next = node2.next
-    node2.next = node1
-    node1.next = _next
-
-    return node2, node1
