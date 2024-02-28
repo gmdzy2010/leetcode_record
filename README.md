@@ -7,8 +7,8 @@
 | [0019](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | 删除倒数第 N 个节点 | 快慢指针，快指针先走N步 |
 | [0021](https://leetcode.cn/problems/merge-two-sorted-lists/) | 合并两个有序链表 | 先利用归并合并等长部分，剩余部分拼接上 |
 | [0023](https://leetcode.cn/problems/merge-k-sorted-lists/) | 合并K个有序链表 | 使用小根堆优先级队列，注意定义节点大小比较方法 |
-|[0024](https://leetcode.cn/problems/swap-nodes-in-pairs/)| 两两交换链表节点 |
-|[0025](https://leetcode.cn/problems/reverse-nodes-in-k-group/)| K个一组翻转链表 |
+| [0024](https://leetcode.cn/problems/swap-nodes-in-pairs/) | 两两交换链表节点 | 使用穿针引线法，和翻转链表的方法类似 |
+| [0025](https://leetcode.cn/problems/reverse-nodes-in-k-group/) | K个一组翻转链表 | 对于每一组先找到尾节点，再翻转，最后拼接 |
 |[0061](https://leetcode.cn/problems/rotate-list/)| 旋转链表 |
 |[0082](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/)| 删除排序链表中的重复元素 |
 |[0083](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/)| 删除排序链表中的重复元素 |
