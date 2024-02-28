@@ -30,8 +30,8 @@ def main(head: ListNode | None, val: int) -> ListNode | None:
     prev = dummy
 
     while prev.next:
-        curr = prev.next
-        if curr.val == val:
+        if prev.next.val == val:
+            curr = prev.next
             prev.next = prev.next.next
             curr.next = None
         else:
