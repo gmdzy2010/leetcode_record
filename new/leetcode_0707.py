@@ -16,6 +16,8 @@ class ListNode:
 
 
 class MyLinkedList:
+    """自定义链表"""
+
     def __init__(self):
         self.size = 0
         self.head = ListNode(0)
