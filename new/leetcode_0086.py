@@ -40,7 +40,7 @@ def main(head: ListNode | None, x: int) -> ListNode | None:
         curr = curr.next
 
     # ! 这里 L.next 不置空提交至 leetcode 会超内存限制
-    # ? 确实可以立即减少内存，但是leetcode 的内存监测会这么精准？监测到对象多创建了一个？
+    # * 因为不切断为导致最终连接起来的链表构成环
     L.next = None
     S.next = dummy_L.next
 
