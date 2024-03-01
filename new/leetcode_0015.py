@@ -1,8 +1,24 @@
-from typing import List
+from typing import List, Set
 
 
-def main(nums: List[int]) -> List[List[int]]:
-    """在数组中找到三数之和为0的所有组合，结果不重复
+def main(nums: List[int]):
+    """三数之和，双指针法
+
+    Args:
+        - nums (List[int]): 原数组
+
+    Returns:
+        - List[List[int]]: 符合条件的三数组合列表
+    """
+    ans1 = three_sum_2pointers(nums)
+    print(ans1)
+
+    ans2 = three_sum_hashmap(nums)
+    print(ans2)
+
+
+def three_sum_2pointers(nums: List[int]) -> List[List[int]]:
+    """三数之和，双指针法
 
     排序结合双指针
     - 先对数组进行排序
@@ -65,6 +81,50 @@ def main(nums: List[int]) -> List[List[int]]:
     return result
 
 
+def three_sum_hashmap(nums: List[int]) -> List[List[int]]:
+    """三数之和，哈希表法
+
+    Args:
+        - nums (List[int]): 原数组
+
+    Returns:
+        - List[List[int]]: 符合条件的三数组合列表
+    """
+    ans: List[List[int]] = []
+
+    # * 一定要先排序
+    nums.sort()
+
+    size = len(nums)
+    for i in range(size):
+        if nums[i] > 0:
+            break
+
+        # * 相邻数字重复去重
+        if i > 0 and nums[i - 1] == nums[i]:
+            continue
+
+        visited: Set[int] = set()
+        for j in range(i + 1, size):
+            # * 相邻两位相同去重
+            # ? 这是为什么
+            if (
+                j > i + 2
+                and nums[j - 2] == nums[j - 1]
+                and nums[j - 1] == nums[j]
+            ):
+                continue
+
+            c = 0 - nums[i] - nums[j]
+            if c in visited:
+                ans.append([nums[i], nums[j], c])
+                visited.remove(c)
+            else:
+                visited.add(nums[j])
+
+    return ans
+
+
 if __name__ == "__main__":
-    input_arr = [-1, 0, 1, 2, -1, -4]
-    print(main(input_arr))
+    test_nums = [-1, 0, 1, 2, -1, -4]
+    main(test_nums)
