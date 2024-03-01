@@ -24,3 +24,12 @@
 | [0206](https://leetcode.cn/problems/reverse-linked-list/) | 翻转链表 | 定义`虚拟节点`prev，依次改变每个节点的next |
 | [0328](https://leetcode.cn/problems/odd-even-linked-list/description/) | 奇偶链表 | `双指针`，奇偶节点`交替前进` |
 | [0707](https://leetcode.cn/problems/add-two-numbers/description/) | 设计实现自定义链表 | `指定位置插入节点` |
+
+### 哈希表
+| 题目编号 | 题目描述 | 解法关键点 |
+| --- | --- | --- |
+| [0001](https://leetcode.cn/problems/two-sum/description/) | 两数之和 | `哈希表`记录遍历过的元素及其位置：`{num: index}` |
+| [0015](https://leetcode.cn/problems/3sum/description/) | 三数之和 | 使用双层循环，内层循环使用`集合` |
+| [0242](https://leetcode.cn/problems/valid-anagram/) | 有效的字母异位词 | 长度为26的`数组哈希表`记录字母出出现次数 |
+| [0349](https://leetcode.cn/problems/intersection-of-two-arrays/description/) | 两个数组的交集 | 使用`集合` |
+| [0454](https://leetcode.cn/problems/4sum-ii/) | 四数相加 | 使用`哈希表`记录前两个数字之和，再遍历后两个数字 |
