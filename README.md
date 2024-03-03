@@ -40,4 +40,5 @@
 | [0028](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) | 字符串第一个匹配项 | `KMP`算法，用`前缀表`加速 |
 | [0151](https://leetcode.cn/problems/reverse-words-in-a-string/) | 翻转字符串中的单词 | `倒叙双指针`，从最右侧开始遍历 |
 | [0344](https://leetcode.cn/problems/reverse-string/) | 翻转字符串 | `双指针`从左右两侧向内收缩 |
+| [0459](https://leetcode.cn/problems/repeated-substring-pattern/) | 重复的子字符串 | `KMP`算法 |
 | [0541](https://leetcode.cn/problems/reverse-string-ii/) | 翻转字符串 | `双指针`从左右两侧向内收缩，for循环指定步长 |
