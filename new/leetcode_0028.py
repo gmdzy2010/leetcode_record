@@ -78,6 +78,6 @@ def get_nexts(pattern: str) -> List[int]:
 
 
 if __name__ == "__main__":
-    test_str = "sadbutsad"
-    test_pat = "ad"
+    test_str = "aabaabaaf"
+    test_pat = "aabaaf"
     main(test_str, test_pat)
