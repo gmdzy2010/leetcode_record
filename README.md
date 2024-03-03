@@ -1,7 +1,7 @@
 # leetcode提交记录
 | 题目编号 | 题目描述 | 解法关键点 |
 | --- | --- | --- |
-| 链表 | | |
+| **链表** |
 | [0002](https://leetcode.cn/problems/add-two-numbers/description/) | 两数相加 | 处理好`进位`和`余数`，注意最后进位的处理 |
 | [0019](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | 删除倒数第 N 个节点 | `快慢指针`，快指针先走N步 |
 | [0021](https://leetcode.cn/problems/merge-two-sorted-lists/) | 合并两个有序链表 | 先利用`归并`合并等长部分，剩余部分拼接上 |
@@ -23,19 +23,19 @@
 | [0206](https://leetcode.cn/problems/reverse-linked-list/) | 翻转链表 | 定义`虚拟节点`prev，依次改变每个节点的next |
 | [0328](https://leetcode.cn/problems/odd-even-linked-list/description/) | 奇偶链表 | `双指针`，奇偶节点`交替前进` |
 | [0707](https://leetcode.cn/problems/add-two-numbers/description/) | 设计实现自定义链表 | `指定位置插入节点` |
-| 哈希表 | | |
+| **哈希表** |
 | [0001](https://leetcode.cn/problems/two-sum/description/) | 两数之和 | `哈希表`记录遍历过的元素及其位置：`{num: index}` |
 | [0015](https://leetcode.cn/problems/3sum/description/) | 三数之和 | 使用双层循环，内层循环使用`集合` |
 | [0242](https://leetcode.cn/problems/valid-anagram/) | 有效的字母异位词 | 长度为26的`数组哈希表`记录字母出出现次数 |
 | [0349](https://leetcode.cn/problems/intersection-of-two-arrays/description/) | 两个数组的交集 | 使用`集合` |
 | [0454](https://leetcode.cn/problems/4sum-ii/) | 四数相加 | 使用`哈希表`记录前两个数字之和，再遍历后两个数字 |
-| 字符串 | | |
+| **字符串** |
 | [0028](https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/) | 字符串第一个匹配项 | `KMP`算法，用`前缀表`加速 |
 | [0151](https://leetcode.cn/problems/reverse-words-in-a-string/) | 翻转字符串中的单词 | `倒叙双指针`，从最右侧开始遍历 |
 | [0344](https://leetcode.cn/problems/reverse-string/) | 翻转字符串 | `双指针`从左右两侧向内收缩 |
 | [0459](https://leetcode.cn/problems/repeated-substring-pattern/) | 重复的子字符串 | `KMP`算法 |
 | [0541](https://leetcode.cn/problems/reverse-string-ii/) | 翻转字符串 | `双指针`从左右两侧向内收缩，for循环指定步长 |
-| 栈与队列 | | |
+| **栈与队列** |
 | [0020](https://leetcode.cn/problems/valid-parentheses/) | 有效的括号 | 栈 |
 | [0042](https://leetcode.cn/problems/trapping-rain-water/) | 接雨水 | `单调栈` |
 | [0150](https://leetcode.cn/problems/evaluate-reverse-polish-notation/) | 逆波兰表达式 |  |
