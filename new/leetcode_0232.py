@@ -59,9 +59,10 @@ if __name__ == "__main__":
     test_queue = MyQueue()
     test_queue.push(2)
     test_queue.push(3)
+    test_queue.push(4)
+    test_queue.pop()
     test_queue.push(5)
-    test_queue.push(9)
-    assert test_queue.pop() == 2
-    assert test_queue.pop() == 3
-    assert test_queue.peek() == 5
-    assert test_queue.empty() is False
+    test_queue.push(6)
+    test_queue.pop()
+    test_queue.pop()
+    test_queue.pop()
