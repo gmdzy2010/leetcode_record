@@ -28,18 +28,20 @@ def main(height: List[int]) -> int:
     for i, h in enumerate(height):
         # * 当出现比栈顶元素高的柱子，说明出现了凹槽，可以接水了
         while stack and h > height[stack[-1]]:
-            top = stack.pop()
+            # * 可接水区域的右边界是栈顶
+            min_h = stack.pop()
+
             # * 栈空了说明出现了一个柱子一直升高的区域
             if not stack:
                 break
 
             # * 可接水区域的左边界是凹槽左边的柱子位置，即当前栈顶
-            L = stack[-1]
-            curr_width = i - L - 1
+            sub_min_h = stack[-1]
+            area_w = i - sub_min_h - 1
 
             # * 高度就是最小的柱子和凹槽处柱子之间的高度差值
-            curr_height = min(height[L], h) - height[top]
-            ans += curr_width * curr_height
+            area_h = min(height[sub_min_h], h) - height[min_h]
+            ans += area_w * area_h
 
         # * 计算完可接水区域后的第一个柱子位置入栈
         stack.append(i)
