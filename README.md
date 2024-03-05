@@ -37,8 +37,8 @@
 | [0541](https://leetcode.cn/problems/reverse-string-ii/) | 翻转字符串 | `双指针`从左右两侧向内收缩，for循环指定步长 |
 | **栈与队列** |
 | [0020](https://leetcode.cn/problems/valid-parentheses/) | 有效的括号 | `栈`，遇到左括号就将右括号入栈，判断`栈顶` |
-| [0042](https://leetcode.cn/problems/trapping-rain-water/) | 接雨水 | `单调栈` |
-| [0150](https://leetcode.cn/problems/evaluate-reverse-polish-notation/) | 逆波兰表达式 |  |
+| [0042](https://leetcode.cn/problems/trapping-rain-water/) | 接雨水 | `单调栈`存`index`，维护一个`单调下降区域`，上升就出栈 |
+| [0150](https://leetcode.cn/problems/evaluate-reverse-polish-notation/) | 逆波兰表达式 | `栈`中是有效的RPN序列，出栈两个数，计算后再放回栈 |
 | [0225](https://leetcode.cn/problems/implement-stack-using-queues/) | 用队列实现栈 | 通过`循环pop`将FIFO转变为LIFO |
 | [0232](https://leetcode.cn/problems/implement-queue-using-stacks/) | 用栈实现队列 | `双栈法`，一个栈负责入队列，一个栈负责逆序元素 |
-| [0347](https://leetcode.cn/problems/top-k-frequent-elements/) | 前K个高频元素 |  |
+| [0347](https://leetcode.cn/problems/top-k-frequent-elements/) | 前K个高频元素 | `哈希表`和`优先级队列`，先统计每个元素出现的次数，再入堆出堆 |
