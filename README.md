@@ -48,8 +48,8 @@
 | [0101](https://leetcode.cn/problems/symmetric-tree/) | 对称二叉树 | `队列`，每层节点内/外侧子节点`成对`入队 |
 | [0102](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 层序遍历 | `队列`，root入队，对`每层`的节点依次出队再左/右节点入队 |
 | [0104](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) | 二叉树的最大深度 | `队列`，类似`层序遍历`，每一层累加1，最终完成遍历即可 |
-| [0105](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 从前中序还原二叉树 |  |
-| [0106](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | 从中后序还原二叉树 |  |
+| [0105](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 从前中序还原二叉树 | 哈希表映射中序`val:index`，根据中序切割左右子树 |
+| [0106](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | 从中后序还原二叉树 | 哈希表映射中序`val:index`，根据中序切割左右子树 |
 | [0108](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 有序数组转为二叉搜索树 |  |
 | [0110](https://leetcode.cn/problems/balanced-binary-tree/) | 判断二叉树是否平衡 |  |
 | [0111](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) | 二叉树的最小深度 | `队列`，类似`层序遍历`，当左右节点都为空返回此时深度 |
@@ -63,7 +63,7 @@
 | [0450](https://leetcode.cn/problems/delete-node-in-a-bst/) | 二叉搜索树的删除 |  |
 | [0501](https://leetcode.cn/problems/find-mode-in-binary-search-tree/) | 二叉搜索树的众数 |  |
 | [0530](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/) | 二叉搜索树的最小绝对差 |  |
-| [0617](https://leetcode.cn/problems/merge-two-binary-trees/) | 合并二叉树 |  |
+| [0617](https://leetcode.cn/problems/merge-two-binary-trees/) | 合并二叉树 | `队列`，每次出队列两节点，分别判断两节点的左右节点 |
 | [0669](https://leetcode.cn/problems/trim-a-binary-search-tree/) | 修剪二叉搜索树 |  |
 | [0700](https://leetcode.cn/problems/search-in-a-binary-search-tree/) | 二叉搜索树的搜索 |  |
 | [0701](https://leetcode.cn/problems/insert-into-a-binary-search-tree/) | 二叉搜索树的插入 |  |
