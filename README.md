@@ -2,7 +2,7 @@
 | 题目编号 | 题目描述 | 解法关键点 |
 | --- | --- | --- |
 | **链表** |
-| [0002](https://leetcode.cn/problems/add-two-numbers/description/) | 两数相加 | 处理好`进位`和`余数`，注意最后进位的处理 |
+| [0002](https://leetcode.cn/problems/add-two-numbers/) | 两数相加 | 处理好`进位`和`余数`，注意最后进位的处理 |
 | [0019](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | 删除倒数第 N 个节点 | `快慢指针`，快指针先走N步 |
 | [0021](https://leetcode.cn/problems/merge-two-sorted-lists/) | 合并两个有序链表 | 先利用`归并`合并等长部分，剩余部分拼接上 |
 | [0023](https://leetcode.cn/problems/merge-k-sorted-lists/) | 合并K个有序链表 | 使用小根堆`优先级队列`，注意定义节点大小比较方法 |
@@ -21,8 +21,8 @@
 | [0160](https://leetcode.cn/problems/intersection-of-two-linked-lists/) | 链表相交 | 使用`集合`记录遍历过的节点 |
 | [0203](https://leetcode.cn/problems/remove-linked-list-elements/) | 移除链表元素 | 注意被移除的节点`清除next引用`节约内存 |
 | [0206](https://leetcode.cn/problems/reverse-linked-list/) | 翻转链表 | 定义`虚拟节点`prev，依次改变每个节点的next |
-| [0328](https://leetcode.cn/problems/odd-even-linked-list/description/) | 奇偶链表 | `双指针`，奇偶节点`交替前进` |
-| [0707](https://leetcode.cn/problems/add-two-numbers/description/) | 设计实现自定义链表 | `指定位置插入节点` |
+| [0328](https://leetcode.cn/problems/odd-even-linked-list/) | 奇偶链表 | `双指针`，奇偶节点`交替前进` |
+| [0707](https://leetcode.cn/problems/add-two-numbers/) | 设计实现自定义链表 | `指定位置插入节点` |
 | **哈希表** |
 | [0001](https://leetcode.cn/problems/two-sum/description/) | 两数之和 | `哈希表`记录遍历过的元素及其位置：`{num: index}` |
 | [0015](https://leetcode.cn/problems/3sum/description/) | 三数之和 | 使用双层循环，内层循环使用`集合` |
@@ -42,3 +42,28 @@
 | [0225](https://leetcode.cn/problems/implement-stack-using-queues/) | 用队列实现栈 | 通过`循环pop`将FIFO转变为LIFO |
 | [0232](https://leetcode.cn/problems/implement-queue-using-stacks/) | 用栈实现队列 | `双栈法`，一个栈负责入队列，一个栈负责逆序元素 |
 | [0347](https://leetcode.cn/problems/top-k-frequent-elements/) | 前K个高频元素 | `哈希表`和`优先级队列`，先统计每个元素出现的次数，再入堆出堆 |
+| **二叉树** |
+| [0094](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 中序遍历 | `中左右`，root不为空再入栈并走左节点，否则出栈处理并走右节点 |
+| [0098](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 验证二叉搜索树 |  |
+| [0101](https://leetcode.cn/problems/symmetric-tree/) | 对称二叉树 | `队列`，每层节点内/外侧子节点`成对`入队 |
+| [0102](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 层序遍历 | `队列`，root入队，对`每层`的节点依次出队再左/右节点入队 |
+| [0104](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) | 二叉树的最大深度 | `队列`，类似`层序遍历`，每一层累加1，最终完成遍历即可 |
+| [0105](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 从前中序还原二叉树 |  |
+| [0106](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | 从中后序还原二叉树 |  |
+| [0108](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 有序数组转为二叉搜索树 |  |
+| [0110](https://leetcode.cn/problems/balanced-binary-tree/) | 判断二叉树是否平衡 |  |
+| [0111](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) | 二叉树的最小深度 | `队列`，类似`层序遍历`，当左右节点都为空返回此时深度 |
+| [0112](https://leetcode.cn/problems/path-sum/) | 路径总和 | `栈`，类似`前后序遍历`，栈中存放`(node, curr_sum)` |
+| [0113](https://leetcode.cn/problems/path-sum-ii/) | 路径总和 | `栈`，类似`前后序遍历`，栈中存放`(node, visited)`，初始visited为空 |
+| [0144](https://leetcode.cn/problems/binary-tree-preorder-traversal/) | 前序遍历 | `中左右`，根节点入栈，出栈处理，再右/左节点入栈 |
+| [0145](https://leetcode.cn/problems/binary-tree-postorder-traversal/) | 后序遍历 | `左右中`，根节点入栈，出栈处理，再左/右节点入栈，最后逆序 |
+| [0226](https://leetcode.cn/problems/invert-binary-tree/) | 翻转二叉树 | `栈`，类似`前后序遍历`，拿到根节点的左右节点，`交换左右`即可 |
+| [0236](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) | 二叉树的最近公共祖先 |  |
+| [0257](https://leetcode.cn/problems/binary-tree-paths/) | 二叉树的所有路径 |  |
+| [0450](https://leetcode.cn/problems/delete-node-in-a-bst/) | 二叉搜索树的删除 |  |
+| [0501](https://leetcode.cn/problems/find-mode-in-binary-search-tree/) | 二叉搜索树的众数 |  |
+| [0530](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/) | 二叉搜索树的最小绝对差 |  |
+| [0617](https://leetcode.cn/problems/merge-two-binary-trees/) | 合并二叉树 |  |
+| [0669](https://leetcode.cn/problems/trim-a-binary-search-tree/) | 修剪二叉搜索树 |  |
+| [0700](https://leetcode.cn/problems/search-in-a-binary-search-tree/) | 二叉搜索树的搜索 |  |
+| [0701](https://leetcode.cn/problems/insert-into-a-binary-search-tree/) | 二叉搜索树的插入 |  |
