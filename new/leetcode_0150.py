@@ -1,7 +1,7 @@
 from typing import List
 
 
-def eval_rpn(tokens: List[str]) -> int:
+def main(tokens: List[str]) -> int:
     """逆波兰表达式求值
 
     Args:
@@ -21,11 +21,30 @@ def eval_rpn(tokens: List[str]) -> int:
             num2 = stack.pop()
             if c == "+":
                 stack.append(num2 + num1)
-            if c == "-":
+            elif c == "-":
                 stack.append(num2 - num1)
-            if c == "*":
+            elif c == "*":
                 stack.append(num2 * num1)
-            if c == "/":
+            else:
                 stack.append(int(num2 / num1))
 
     return stack.pop()
+
+
+if __name__ == "__main__":
+    test_tokens = [
+        "10",
+        "6",
+        "9",
+        "3",
+        "+",
+        "-11",
+        "*",
+        "/",
+        "*",
+        "17",
+        "+",
+        "5",
+        "+",
+    ]
+    print(main(test_tokens))
