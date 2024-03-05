@@ -53,8 +53,8 @@
 | [0108](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 有序数组转为二叉搜索树 |  |
 | [0110](https://leetcode.cn/problems/balanced-binary-tree/) | 判断二叉树是否平衡 |  |
 | [0111](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) | 二叉树的最小深度 | `队列`，类似`层序遍历`，当左右节点都为空返回此时深度 |
-| [0112](https://leetcode.cn/problems/path-sum/) | 路径总和 | `栈`，类似`前后序遍历`，栈中存放`(node, curr_sum)` |
-| [0113](https://leetcode.cn/problems/path-sum-ii/) | 路径总和 | `栈`，类似`前后序遍历`，栈中存放`(node, visited)`，初始visited为空 |
+| [0112](https://leetcode.cn/problems/path-sum/) | 路径总和 | 类似`前后序遍历`，栈中存放`(node, curr_sum)` |
+| [0113](https://leetcode.cn/problems/path-sum-ii/) | 路径总和 | 类似`前后序遍历`，栈中存放`(node, visited)`，初始visited为空 |
 | [0144](https://leetcode.cn/problems/binary-tree-preorder-traversal/) | 前序遍历 | `中左右`，根节点入栈，出栈处理，再右/左节点入栈 |
 | [0145](https://leetcode.cn/problems/binary-tree-postorder-traversal/) | 后序遍历 | `左右中`，根节点入栈，出栈处理，再左/右节点入栈，最后逆序 |
 | [0226](https://leetcode.cn/problems/invert-binary-tree/) | 翻转二叉树 | `栈`，类似`前后序遍历`，拿到根节点的左右节点，`交换左右`即可 |
