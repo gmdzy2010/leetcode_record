@@ -48,30 +48,21 @@ def get_height(node: TreeNode | None) -> int:
     - 从当前节点到叶子节点的节点数量
 
     Args:
-        node (TreeNode | None): 当前节点
+        - node (TreeNode | None): 当前节点
 
     Returns:
-        int: 二叉树的当前高度，如果左右子树的高度差大于1（不平衡），则返回 -1
+        - int: 二叉树的当前高度，如果左右子树的高度差大于1（不平衡），则返回 -1
     """
     if not node:
         return 0
 
-    left_height = get_height(node.left)
-    right_height = get_height(node.right)
+    L_height, R_height = get_height(node.left), get_height(node.right)
 
-    # * 如果左右子树不平衡，那么整棵树不平衡
-    if left_height == -1:
-        return -1
-    if right_height == -1:
+    # * 如果左右子树不平衡，或者高度差大于1，那么整棵树不平衡
+    if L_height == -1 or R_height == -1 or abs(L_height - R_height) > 1:
         return -1
 
-    # * 如果左右子树高度差大于1，也不平衡，若高度差小于等于1返回左右子树的高度
-    if abs(left_height - right_height) > 1:
-        res = -1
-    else:
-        res = 1 + max(left_height, right_height)
-
-    return res
+    return 1 + max(L_height, R_height)
 
 
 if __name__ == "__main__":
