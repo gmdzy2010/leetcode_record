@@ -44,26 +44,26 @@
 | [0347](https://leetcode.cn/problems/top-k-frequent-elements/) | 前K个高频元素 | `哈希表`和`优先级队列`，先统计每个元素出现的次数，再入堆出堆 |
 | **二叉树** |
 | [0094](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 中序遍历 | `中左右`，root不为空再入栈并走左节点，否则出栈处理并走右节点 |
-| [0098](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 验证二叉搜索树 |  |
+| [0098](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 验证二叉搜索树 | 判断`中序遍历`获得的数组是否`有序`即可 |
 | [0101](https://leetcode.cn/problems/symmetric-tree/) | 对称二叉树 | `队列`，每层节点内/外侧子节点`成对`入队 |
 | [0102](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 层序遍历 | `队列`，root入队，对`每层`的节点依次出队再左/右节点入队 |
 | [0104](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) | 二叉树的最大深度 | `队列`，类似`层序遍历`，每一层累加1，最终完成遍历即可 |
 | [0105](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 从前中序还原二叉树 | 哈希表映射中序`val:index`，根据中序切割左右子树 |
 | [0106](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | 从中后序还原二叉树 | 哈希表映射中序`val:index`，根据中序切割左右子树 |
-| [0108](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 有序数组转为二叉搜索树 |  |
-| [0110](https://leetcode.cn/problems/balanced-binary-tree/) | 判断二叉树是否平衡 |  |
-| [0111](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) | 二叉树的最小深度 | `队列`，类似`层序遍历`，当左右节点都为空返回此时深度 |
+| [0108](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 有序数组转为二叉搜索树 | 类似`递归`遍历的`中序遍历` |
+| [0110](https://leetcode.cn/problems/balanced-binary-tree/) | 判断二叉树是否平衡 | 分别`递归`获取左右子树高度，判断差值是否大于1 |
+| [0111](https://leetcode.cn/problems/minimum-depth-of-binary-tree/) | 二叉树的最小深度 | 类似`层序遍历`，当左右节点都为空返回此时深度 |
 | [0112](https://leetcode.cn/problems/path-sum/) | 路径总和 | 类似`前后序遍历`，栈中存放`(node, curr_sum)` |
 | [0113](https://leetcode.cn/problems/path-sum-ii/) | 路径总和 | 类似`前后序遍历`，栈中存放`(node, visited)`，初始visited为空 |
 | [0144](https://leetcode.cn/problems/binary-tree-preorder-traversal/) | 前序遍历 | `中左右`，根节点入栈，出栈处理，再右/左节点入栈 |
 | [0145](https://leetcode.cn/problems/binary-tree-postorder-traversal/) | 后序遍历 | `左右中`，根节点入栈，出栈处理，再左/右节点入栈，最后逆序 |
 | [0226](https://leetcode.cn/problems/invert-binary-tree/) | 翻转二叉树 | `栈`，类似`前后序遍历`，拿到根节点的左右节点，`交换左右`即可 |
-| [0236](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) | 二叉树的最近公共祖先 |  |
-| [0257](https://leetcode.cn/problems/binary-tree-paths/) | 二叉树的所有路径 |  |
-| [0450](https://leetcode.cn/problems/delete-node-in-a-bst/) | 二叉搜索树的删除 |  |
+| [0236](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) | 二叉树的最近公共祖先 | `哈希表`映射子到父关系，`集合`记录遍历过的节点 |
+| [0257](https://leetcode.cn/problems/binary-tree-paths/) | 二叉树的所有路径 | `回溯法`，收集所有路径节点，记得路径初始化带上根节点 |
+| [0450](https://leetcode.cn/problems/delete-node-in-a-bst/) | 二叉搜索树的删除 | 分别在左右子树`递归删除`，删除根节点找`右节点的最左侧` |
 | [0501](https://leetcode.cn/problems/find-mode-in-binary-search-tree/) | 二叉搜索树的众数 |  |
 | [0530](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/) | 二叉搜索树的最小绝对差 |  |
 | [0617](https://leetcode.cn/problems/merge-two-binary-trees/) | 合并二叉树 | `队列`，每次出队列两节点，分别判断两节点的左右节点 |
 | [0669](https://leetcode.cn/problems/trim-a-binary-search-tree/) | 修剪二叉搜索树 |  |
-| [0700](https://leetcode.cn/problems/search-in-a-binary-search-tree/) | 二叉搜索树的搜索 |  |
-| [0701](https://leetcode.cn/problems/insert-into-a-binary-search-tree/) | 二叉搜索树的插入 |  |
+| [0700](https://leetcode.cn/problems/search-in-a-binary-search-tree/) | 二叉搜索树的搜索 | 待搜索值比当前值`小走左边`，比当前值`大走右边` |
+| [0701](https://leetcode.cn/problems/insert-into-a-binary-search-tree/) | 二叉搜索树的插入 | `小左大右`规则，找到空节点后break |
