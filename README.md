@@ -67,3 +67,18 @@
 | [0669](https://leetcode.cn/problems/trim-a-binary-search-tree/) | 修剪二叉搜索树 |  |
 | [0700](https://leetcode.cn/problems/search-in-a-binary-search-tree/) | 二叉搜索树的搜索 | 待搜索值比当前值`小走左边`，比当前值`大走右边` |
 | [0701](https://leetcode.cn/problems/insert-into-a-binary-search-tree/) | 二叉搜索树的插入 | `小左大右`规则，找到空节点后break |
+| **回溯** |
+| [0017](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/) | 电话号码组合 | `数组哈希表`映射号码与字母关系，依次尝试 |
+| [0037](https://leetcode.cn/problems/sudoku-solver/) | 解数独 |  |
+| [0039](https://leetcode.cn/problems/combination-sum/) | 组合总和 | 先对待选数字`排序`，可重复选择意味着start不用累加1 |
+| [0040](https://leetcode.cn/problems/combination-sum-ii/) | 组合总和 |  |
+| [0046](https://leetcode.cn/problems/permutations/) | 全排列 |  |
+| [0047](https://leetcode.cn/problems/permutations-ii/) | 全排列 |  |
+| [0051](https://leetcode.cn/problems/n-queens/) | N皇后 |  |
+| [0077](https://leetcode.cn/problems/combinations/) | 组合 | 注意`组合不重复`，注意待选范围小于可选范围的`剪枝` |
+| [0078](https://leetcode.cn/problems/subsets/) | 子集 |  |
+| [0090](https://leetcode.cn/problems/subsets-ii/) | 子集 |  |
+| [0093](https://leetcode.cn/problems/restore-ip-addresses/) | 复原IP地址 |  |
+| [0131](https://leetcode.cn/problems/palindrome-partitioning/) | 分割回文串 |  |
+| [0216](https://leetcode.cn/problems/combination-sum-iii/) | 组合总和 | `剪枝`，当`选择数字达到上限`时停止回溯，不论累加是否达标 |
+| [0491](https://leetcode.cn/problems/non-decreasing-subsequences/) | 递增子序列 |  |
