@@ -34,22 +34,18 @@ def backtracking(s: str, start: int, res: List[str], ans: List[str]):
 
     # * 结果数组有了四段就判断一下是不是分完了
     if p_size == 4:
-        num = "".join(res)
-        if len(num) == s_size:
+        if len("".join(res)) == s_size:
             ans.append(".".join(res))
 
         return
 
     for i in range(start, s_size):
-        if is_valid(s, start, i):
-            res.append(s[start : i + 1])
-
-            backtracking(s, i + 1, res, ans)
-
-            res.pop()
-
-        else:
+        if not is_valid(s, start, i):
             break
+
+        res.append(s[start : i + 1])
+        backtracking(s, i + 1, res, ans)
+        res.pop()
 
 
 def is_valid(s: str, start: int, end: int) -> bool:
@@ -85,5 +81,5 @@ def is_valid(s: str, start: int, end: int) -> bool:
 
 
 if __name__ == "__main__":
-    test_str = "101023"
+    test_str = "25525511135"
     print(main(test_str))
