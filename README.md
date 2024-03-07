@@ -69,16 +69,18 @@
 | [0701](https://leetcode.cn/problems/insert-into-a-binary-search-tree/) | 二叉搜索树的插入 | `小左大右`规则，找到空节点后break |
 | **回溯** |
 | [0017](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/) | 电话号码组合 | `数组哈希表`映射号码与字母关系，依次尝试 |
-| [0037](https://leetcode.cn/problems/sudoku-solver/) | 解数独 |  |
-| [0039](https://leetcode.cn/problems/combination-sum/) | 组合总和 | 先对待选数字`排序`，可重复选择意味着start不用累加1 |
-| [0040](https://leetcode.cn/problems/combination-sum-ii/) | 组合总和 |  |
-| [0046](https://leetcode.cn/problems/permutations/) | 全排列 |  |
-| [0047](https://leetcode.cn/problems/permutations-ii/) | 全排列 |  |
-| [0051](https://leetcode.cn/problems/n-queens/) | N皇后 |  |
-| [0077](https://leetcode.cn/problems/combinations/) | 组合 | 注意`组合不重复`，注意待选范围小于可选范围的`剪枝` |
-| [0078](https://leetcode.cn/problems/subsets/) | 子集 |  |
-| [0090](https://leetcode.cn/problems/subsets-ii/) | 子集 |  |
-| [0093](https://leetcode.cn/problems/restore-ip-addresses/) | 复原IP地址 |  |
-| [0131](https://leetcode.cn/problems/palindrome-partitioning/) | 分割回文串 |  |
+| [0037](https://leetcode.cn/problems/sudoku-solver/) | 解数独 | 判断`行``列``小九宫格`有效性，注意九宫格坐标求法 |
+| [0039](https://leetcode.cn/problems/combination-sum/) | 组合总和 | 先对待选数字`排序`，可重复选择：`回溯起点不变` |
+| [0040](https://leetcode.cn/problems/combination-sum-ii/) | 组合总和 | 先`排序`，不可重复选择：`回溯起点+1` |
+| [0046](https://leetcode.cn/problems/permutations/) | 全排列 | `等长数组`记录元素是否访问过 |
+| [0047](https://leetcode.cn/problems/permutations-ii/) | 全排列 | `等长数组`记录元素是否访问过，`排序`并去重 |
+| [0051](https://leetcode.cn/problems/n-queens/) | N皇后 | 逐行判断前面行的`45度`和`135度`方向是否存在皇后 |
+| [0077](https://leetcode.cn/problems/combinations/) | 组合 | `不重复`，注意待选范围小于可选范围的`剪枝` |
+| [0078](https://leetcode.cn/problems/subsets/) | 子集 | `不重复`，`start==size`时递归终止 |
+| [0090](https://leetcode.cn/problems/subsets-ii/) | 子集 | `不重复`，`start==size`时递归终止，排序后遍历时去重 |
+| [0093](https://leetcode.cn/problems/restore-ip-addresses/) | 复原IP地址 | `不重复`，每次回溯`枚举右边界`，下轮回溯起点+1 |
+| [0131](https://leetcode.cn/problems/palindrome-partitioning/) | 分割回文串 | `不重复`，每次回溯`枚举右边界`，下轮回溯起点+1 |
 | [0216](https://leetcode.cn/problems/combination-sum-iii/) | 组合总和 | `剪枝`，当`选择数字达到上限`时停止回溯，不论累加是否达标 |
 | [0491](https://leetcode.cn/problems/non-decreasing-subsequences/) | 递增子序列 |  |
+| **贪心** |
+| [0455](https://leetcode.cn/problems/assign-cookies/) | 分发饼干 |  |
