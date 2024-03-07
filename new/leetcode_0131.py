@@ -37,13 +37,8 @@ def is_palindrome(s: str, L: int, R: int) -> bool:
     return True
 
 
-def backtracking(
-    s: str,
-    start: int,
-    res: List[str],
-    ans: List[List[str]],
-):
-    """回溯递归函数
+def backtracking(s: str, start: int, res: List[str], ans: List[List[str]]):
+    """回溯函数
 
     Args:
         - s (str): 原字符串
@@ -57,13 +52,11 @@ def backtracking(
         return
 
     for i in range(start, size):
-        if is_palindrome(s, start, i):
-            res.append(s[start : i + 1])
-        else:
+        if not is_palindrome(s, start, i):
             continue
 
+        res.append(s[start : i + 1])
         backtracking(s, i + 1, res, ans)
-
         res.pop()
 
 
