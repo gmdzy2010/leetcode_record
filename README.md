@@ -83,4 +83,15 @@
 | [0216](https://leetcode.cn/problems/combination-sum-iii/) | 组合总和 | `剪枝`，当`选择数字达到上限`时停止回溯，不论累加是否达标 |
 | [0491](https://leetcode.cn/problems/non-decreasing-subsequences/) | 递增子序列 |  |
 | **贪心** |
-| [0455](https://leetcode.cn/problems/assign-cookies/) | 分发饼干 |  |
+| [0045](https://leetcode.cn/problems/jump-game-ii/) | 跳跃游戏 | `不得不移动`时再移动一步，最后获取最少步数 |
+| [0053](https://leetcode.cn/problems/maximum-subarray/) | 最大子数组和 | 元素大于零就累加，`原地更改` |
+| [0055](https://leetcode.cn/problems/jump-game/) | 跳跃游戏 | 在`可达范围内循环`，每走一步更新`可达范围` |
+| [0056](https://leetcode.cn/problems/merge-intervals/) | 合并区间 | 按`左边界排序`，上一个区间的`最右`比当前区间的`最左` |
+| [0122](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) | 买卖股票的最佳时机 | 最好动态规划 |
+| [0134](https://leetcode.cn/problems/gas-station/) | 加油站 | 遍历油量，计算`当前剩余油量`和`总剩余油量` |
+| [0135](https://leetcode.cn/problems/candy/) | 分发糖果 | `正序遍历`+`逆序遍历`，分别处理`prev vs curr`和`curr vs next` |
+| [0376](https://leetcode.cn/problems/wiggle-subsequence/) | 摆动序列 | 分别计算相邻三个数的两个差值，统计`>=0`和`<0`个数即可 |
+| [0452](https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/) | 最少的箭射爆气球 | 按`右边界排序`，注意数组不为零，初始需要一支箭 |
+| [0455](https://leetcode.cn/problems/assign-cookies/) | 分发饼干 | `排序`，倒序遍历，大饼干给胃口大的孩子 |
+| [0738](https://leetcode.cn/problems/monotone-increasing-digits/) | 单调递增的数字 | `倒序遍历`数字字符串，遇到拐点`高位-1`，`低位全变9` |
+| [0860](https://leetcode.cn/problems/lemonade-change/) | 柠檬水找零 |  |
