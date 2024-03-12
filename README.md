@@ -95,3 +95,35 @@
 | [0455](https://leetcode.cn/problems/assign-cookies/) | 分发饼干 | `排序`，倒序遍历，大饼干给胃口大的孩子 |
 | [0738](https://leetcode.cn/problems/monotone-increasing-digits/) | 单调递增的数字 | `倒序遍历`数字字符串，遇到拐点`高位-1`，`低位全变9` |
 | [0860](https://leetcode.cn/problems/lemonade-change/) | 柠檬水找零 |  |
+| **动态规划** |
+| [0509](https://leetcode.cn/problems/fibonacci-number/) | 斐波那契数列 | `轮转数组`，不定义dp数组，节约内存 |
+| [0070](https://leetcode.cn/problems/climbing-stairs/) | 爬楼梯 | 类似`斐波那契数列`，如果需要计算到n，dp数组长度为`n+1` |
+| [0746](https://leetcode.cn/problems/min-cost-climbing-stairs/) | 最少的花费爬楼梯 | dp长度n，`dp[i]=min(dp[i-2],dp[i-1])+cost[i]` |
+| [0062](https://leetcode.cn/problems/unique-paths/) | 不同的路径 | 注意初始化边界，`dp[i][j]=dp[i-1][j]+dp[i][j-1]` |
+| [0063](https://leetcode.cn/problems/unique-paths-ii/) | 不同的路径 | 类似于62题，遇到障碍`初始化停止`，`求解跳过继续` |
+| [0343](https://leetcode.cn/problems/integer-break/) | 整数拆分 | 注意`0和1不可拆`，`dp[i]=max(dp[i],j*(i-j),j*dp[i-j])` |
+| [0096](https://leetcode.cn/problems/unique-binary-search-trees/) | 不同的二叉树个数 | 卡塔兰数，`dp[i]+=dp[j-1]*dp[i-j]` |
+| [0416](https://leetcode.cn/problems/partition-equal-subset-sum/) | 分割等和子集 | `01背包`，`先物品再背包`，`dp[j]=max(dp[j],dp[j-n[i]]+n[i])` |
+| [0494](https://leetcode.cn/problems/target-sum/) | 目标和 |  |
+| [0474](https://leetcode.cn/problems/ones-and-zeroes/) | 一和零 | `01背包`，`dp[i][j] = max(dp[i][j],dp[i-cnt_0][j-cnt_1]+1)` |
+| [0518](https://leetcode.cn/problems/coin-change-ii/) | 零钱兑换 |  |
+| [0377](https://leetcode.cn/problems/combination-sum-iv/) | 组合总和 |  |
+| [0322](https://leetcode.cn/problems/coin-change/) | 零钱兑换 |  |
+| [0279](https://leetcode.cn/problems/perfect-squares/) | 完全平方数 |  |
+| [0121](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 买卖股票的最佳时机 |  |
+| [0122](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) | 买卖股票的最佳时机 |  |
+| [0123](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/) | 买卖股票的最佳时机 |  |
+| [0188](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) | 买卖股票的最佳时机 |  |
+| [0309](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | 买卖股票的最佳时机 |  |
+| [0714](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) | 买卖股票的最佳时机 |  |
+| [0300](https://leetcode.cn/problems/longest-increasing-subsequence/) | 最长递增子序列 |  |
+| [0674](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/) | 最长连续递增序列 |  |
+| [0718](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/) | 最长重复子数组 |  |
+| [1143](https://leetcode.cn/problems/longest-common-subsequence/) | 最长公共子序列 |  |
+| [1035](https://leetcode.cn/problems/uncrossed-lines/) | 不相交的线 |  |
+| [0392](https://leetcode.cn/problems/is-subsequence/) | 判断子序列 |  |
+| [0115](https://leetcode.cn/problems/distinct-subsequences/) | 不同的子序列 |  |
+| [0583](https://leetcode.cn/problems/delete-operation-for-two-strings/) | 两个字符串的删除操作 |  |
+| [0072](https://leetcode.cn/problems/edit-distance/) | 编辑距离 |  |
+| [0064](https://leetcode.cn/problems/minimum-path-sum/) | 回文子串 |  |
+| [0516](https://leetcode.cn/problems/longest-palindromic-subsequence/) | 最长回文子序列 |  |
