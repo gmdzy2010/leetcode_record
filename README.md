@@ -105,18 +105,18 @@
 | [0096](https://leetcode.cn/problems/unique-binary-search-trees/) | 不同的二叉树个数 | 卡塔兰数，`dp[i]+=dp[j-1]*dp[i-j]` |
 | [0416](https://leetcode.cn/problems/partition-equal-subset-sum/) | 分割等和子集 | `01背包`，`先物品再背包`，`dp[j]=max(dp[j],dp[j-n[i]]+n[i])` |
 | [0494](https://leetcode.cn/problems/target-sum/) | 目标和 |  |
-| [0474](https://leetcode.cn/problems/ones-and-zeroes/) | 一和零 | `01背包`，`dp[i][j] = max(dp[i][j],dp[i-cnt_0][j-cnt_1]+1)` |
-| [0518](https://leetcode.cn/problems/coin-change-ii/) | 零钱兑换 |  |
-| [0377](https://leetcode.cn/problems/combination-sum-iv/) | 组合总和 |  |
-| [0322](https://leetcode.cn/problems/coin-change/) | 零钱兑换 |  |
-| [0279](https://leetcode.cn/problems/perfect-squares/) | 完全平方数 |  |
+| [0474](https://leetcode.cn/problems/ones-and-zeroes/) | 一和零 | `01背包`，`dp[i][j]=max(dp[i][j],dp[i-cnt_0][j-cnt_1]+1)` |
+| [0518](https://leetcode.cn/problems/coin-change-ii/) | 零钱兑换 | `01背包`，`dp[i]=dp[i]+dp[i-coin]`，`组合问题` |
+| [0377](https://leetcode.cn/problems/combination-sum-iv/) | 组合总和 | 类似零钱兑换，但是此题是`排列问题` |
+| [0322](https://leetcode.cn/problems/coin-change/) | 零钱兑换 | `01背包`，`dp[i]=min(dp[i],dp[i-coin]+1)`，`组合问题` |
+| [0279](https://leetcode.cn/problems/perfect-squares/) | 完全平方数 | 类似零钱兑换，`01背包`，`组合问题` |
 | [0121](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 买卖股票的最佳时机 |  |
 | [0122](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) | 买卖股票的最佳时机 |  |
 | [0123](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/) | 买卖股票的最佳时机 |  |
 | [0188](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) | 买卖股票的最佳时机 |  |
 | [0309](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | 买卖股票的最佳时机 |  |
 | [0714](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) | 买卖股票的最佳时机 |  |
-| [0300](https://leetcode.cn/problems/longest-increasing-subsequence/) | 最长递增子序列 |  |
+| [0300](https://leetcode.cn/problems/longest-increasing-subsequence/) | 最长递增子序列 | 初始化全为1，`dp[i]=max(dp[i],dp[j]+1)` |
 | [0674](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/) | 最长连续递增序列 |  |
 | [0718](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/) | 最长重复子数组 |  |
 | [1143](https://leetcode.cn/problems/longest-common-subsequence/) | 最长公共子序列 |  |
