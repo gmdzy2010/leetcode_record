@@ -15,8 +15,6 @@ def main(nums: List[int]) -> int:
 
     size = len(nums)
 
-    ans = 0
-
     # * dp[i] 代表以 nums[i] 结尾的最长递增子序列长度，全部初始化为1
     dp = [1] * size
 
@@ -27,13 +25,9 @@ def main(nums: List[int]) -> int:
             if nums[j] < nums[i]:
                 dp[i] = max(dp[i], dp[j] + 1)
 
-        # * 更新最长的最长的
-        if dp[i] > ans:
-            ans = dp[i]
-
-    return ans
+    return max(dp)
 
 
 if __name__ == "__main__":
-    test_nums = [10, 9, 2, 5, 3, 7, 101, 18]
+    test_nums = [1, 3, 6, 7, 9, 4, 10, 5, 6]
     print(main(test_nums))
