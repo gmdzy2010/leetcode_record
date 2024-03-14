@@ -17,18 +17,13 @@ def main(nums1: List[int], nums2: List[int]) -> int:
     # ! 显然两个数组都不存在第 0 个元素，约定 dp[i][0]/dp[0][j] 都为 0
     dp = [[0 for _ in range(size_2 + 1)] for _ in range(size_1 + 1)]
 
-    ans = 0
-
     for i in range(1, size_1 + 1):
         for j in range(1, size_2 + 1):
             # ! 注意这里 dp[i][j] 中的 i/j 和实际的数组索引相差 1
             if nums1[i - 1] == nums2[j - 1]:
                 dp[i][j] = dp[i - 1][j - 1] + 1
 
-            if dp[i][j] > ans:
-                ans = dp[i][j]
-
-    return ans
+    return max(map(max, dp))
 
 
 if __name__ == "__main__":
