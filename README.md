@@ -110,20 +110,20 @@
 | [0377](https://leetcode.cn/problems/combination-sum-iv/) | 组合总和 | 类似零钱兑换，但是此题是`排列问题` |
 | [0322](https://leetcode.cn/problems/coin-change/) | 零钱兑换 | `01背包`，`dp[i]=min(dp[i],dp[i-coin]+1)`，`组合问题` |
 | [0279](https://leetcode.cn/problems/perfect-squares/) | 完全平方数 | 类似零钱兑换，`01背包`，`组合问题` |
-| [0121](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 买卖股票的最佳时机 |  |
-| [0122](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) | 买卖股票的最佳时机 |  |
-| [0123](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/) | 买卖股票的最佳时机 |  |
-| [0188](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) | 买卖股票的最佳时机 |  |
+| [0121](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 买卖股票的最佳时机 | 不断获取`最小价格`和`最大价格`，计算差值 |
+| [0122](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) | 买卖股票的最佳时机 | 明天卖策略，从第2天开始不断`累加大于0的利润` |
+| [0123](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/) | 买卖股票的最佳时机 | `5种状态`，买入卖出使`持有/不持有`状态转移 |
+| [0188](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/) | 买卖股票的最佳时机 | 类似123题，`2k+1种状态`，更一般化 |
 | [0309](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | 买卖股票的最佳时机 |  |
 | [0714](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) | 买卖股票的最佳时机 |  |
 | [0300](https://leetcode.cn/problems/longest-increasing-subsequence/) | 最长递增子序列 | 初始化全为1，`dp[i]=max(dp[i],dp[j]+1)` |
-| [0674](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/) | 最长连续递增序列 |  |
-| [0718](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/) | 最长重复子数组 |  |
-| [1143](https://leetcode.cn/problems/longest-common-subsequence/) | 最长公共子序列 |  |
-| [1035](https://leetcode.cn/problems/uncrossed-lines/) | 不相交的线 |  |
-| [0392](https://leetcode.cn/problems/is-subsequence/) | 判断子序列 |  |
-| [0115](https://leetcode.cn/problems/distinct-subsequences/) | 不同的子序列 |  |
-| [0583](https://leetcode.cn/problems/delete-operation-for-two-strings/) | 两个字符串的删除操作 |  |
-| [0072](https://leetcode.cn/problems/edit-distance/) | 编辑距离 |  |
-| [0064](https://leetcode.cn/problems/minimum-path-sum/) | 回文子串 |  |
-| [0516](https://leetcode.cn/problems/longest-palindromic-subsequence/) | 最长回文子序列 |  |
+| [0674](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/) | 最长连续递增序列 | `快慢指针`，达到拐点就计算长度 |
+| [0718](https://leetcode.cn/problems/maximum-length-of-repeated-subarray/) | 最长重复子数组 | `dp[i][j]=dp[i-1][j-1]+1` |
+| [1143](https://leetcode.cn/problems/longest-common-subsequence/) | 最长公共子序列 | 相等时长度+1，不相等时取回退字符长度大的 |
+| [1035](https://leetcode.cn/problems/uncrossed-lines/) | 不相交的线 | 类似`最长公共子序列`，相对次序相同即可 |
+| [0392](https://leetcode.cn/problems/is-subsequence/) | 判断子序列 | 类似`最长公共子序列`，相同时长度+1，不相同时长的回退1 |
+| [0115](https://leetcode.cn/problems/distinct-subsequences/) | 不同的子序列 | 当前字符相等时`dp[i][j]=dp[i-1][j]+dp[i-1][j-1]` |
+| [0583](https://leetcode.cn/problems/delete-operation-for-two-strings/) | 两个字符串的删除操作 | 找两个字符串`都删除`或者`删除一个`3种中的最小 |
+| [0072](https://leetcode.cn/problems/edit-distance/) | 编辑距离 | 类似583，`删除/增加/替换`均为1次操作 |
+| [0064](https://leetcode.cn/problems/minimum-path-sum/) | 最小路径和 | 注意边界，取`左边/上方`累加和路径小的那个 |
+| [0516](https://leetcode.cn/problems/longest-palindromic-subsequence/) | 最长回文子序列 | 注意遍历行列调换了，从`左下角到右上角` |
