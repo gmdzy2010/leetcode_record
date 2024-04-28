@@ -18,17 +18,19 @@ def main(nums: List[int]):
         return None
 
     # * 使用两个指针
-    L, R = 0, 0
-    while R < size:
-        # * R 到了不为零的位置，而 L 在第一个为 0 的位置
-        if nums[R] != 0:
-            # * 交换 L/R 处元素，此时 R 处为 0 ，L不为 0
-            nums[L], nums[R] = nums[R], nums[L]
+    i, j = 0, 0
+    while j < size:
+        # * j 到了不为零的位置，而 i 在第一个为 0 的位置
+        # ? 为什么要判断 R 处元素是否为 0？
+        # 因为题目要求把 0 移到最后
+        if nums[j] != 0:
+            # * 交换 i/j 处元素，此时 j 处为 0 ，i 不为 0
+            nums[i], nums[j] = nums[j], nums[i]
 
-            # * L 右移一步之后，又到了第一个 0 的位置上
-            L += 1
+            # * i 右移一步之后，又到了第一个 0 的位置上
+            i += 1
 
-        R += 1
+        j += 1
 
     return nums
 
