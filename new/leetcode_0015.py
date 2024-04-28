@@ -46,6 +46,8 @@ def three_sum_2pointers(nums: List[int]) -> List[List[int]]:
     nums.sort()
 
     for i in range(size):
+        # ! i 固定为最左侧的数，而 num[i] <= nums[L] <= nums[R]，nums[i] 大于零，
+        # ! 三数之和必然大于零
         if nums[i] > 0:
             return result
 
@@ -108,11 +110,7 @@ def three_sum_hashmap(nums: List[int]) -> List[List[int]]:
         for j in range(i + 1, size):
             # * 相邻两位相同去重
             # ? 这是为什么
-            if (
-                j > i + 2
-                and nums[j - 2] == nums[j - 1]
-                and nums[j - 1] == nums[j]
-            ):
+            if j > i + 2 and nums[j - 2] == nums[j - 1] and nums[j - 1] == nums[j]:
                 continue
 
             c = 0 - nums[i] - nums[j]
