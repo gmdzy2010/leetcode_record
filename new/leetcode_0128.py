@@ -11,11 +11,13 @@ def main(nums: List[int]) -> int:
         - int: 最长连续数字长度
     """
     ans = 0
+
+    # ! 这里必须使用集合，列表的 in 操作会超时
     nums = set(nums)  # type: ignore
 
     for num in nums:
         # ! 这个条件判断可以去掉重复的查找
-        # * 如果当前数字的前一个数字在集合中，那么后续的查找还会找到，现在跳过就行
+        # * 如果当前数字的前一个数字在集合中，说明以 num - 1 开始的连续数字已经找过了
         if num - 1 in nums:
             continue
 
@@ -32,5 +34,5 @@ def main(nums: List[int]) -> int:
 
 
 if __name__ == "__main__":
-    test_nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+    test_nums = [0, 3, 3, 7, 2, 4, 5, 8, 4, 6, 0, 1]
     print(main(test_nums))
