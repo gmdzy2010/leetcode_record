@@ -75,6 +75,35 @@ def get_max_within_sliding_window(nums: List[int], k: int) -> List[int]:
     return ans
 
 
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        if not nums or k == 0:
+            return []
+
+        # * 窗口队列：左到右单调递减
+        size, window = len(nums), deque()
+
+        # * 未形成窗口
+        for i in range(k):
+            while window and window[-1] < nums[i]:
+                window.pop()
+            window.append(nums[i])
+
+        ans = [window[0]]
+
+        # * 形成窗口
+        for i in range(k, size):
+            # 若当前数字和队列中的最大相等，把旧的出队，新的入队
+            if window[0] == nums[i - k]:
+                window.popleft()
+            while window and window[-1] < nums[i]:
+                window.pop()
+            window.append(nums[i])
+            ans.append(window[0])
+
+        return ans
+
+
 if __name__ == "__main__":
     test_nums = [1, 3, -1, -3, 5, 3, 6, 7]
     print(get_max_within_sliding_window(test_nums, 3))
