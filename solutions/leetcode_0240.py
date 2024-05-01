@@ -11,15 +11,13 @@ def main(matrix: List[List[int]], target: int) -> bool:
     Returns:
         - bool: 是否存在 target
     """
-    size_row, size_col = len(matrix), len(matrix[0])
-
-    # * 从右上角往左下角看是一颗不严格的BST
-    i, j = size_row - 1, 0
-    while i >= 0 and j < size_col:
-        if matrix[i][j] > target:
-            i -= 1
-        elif matrix[i][j] < target:
-            j += 1
+    row, col = len(matrix), len(matrix[0])
+    r, c = 0, col - 1
+    while c >= 0 and r < row:
+        if target < matrix[r][c]:
+            c -= 1
+        elif target > matrix[r][c]:
+            r += 1
         else:
             return True
 
