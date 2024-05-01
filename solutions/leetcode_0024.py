@@ -26,7 +26,7 @@ def main(head: ListNode | None) -> ListNode | None:
     """
     dummy = ListNode()
     dummy.next = head
-    curr = head
+    curr = dummy
 
     while curr and curr.next and curr.next.next:
         node1 = curr.next
