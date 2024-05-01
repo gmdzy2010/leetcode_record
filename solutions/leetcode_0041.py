@@ -4,6 +4,10 @@ from typing import List
 def main(nums: List[int]) -> int:
     """缺失的第一个正数，哈希数组法
 
+    相当于执行一个哈希函数，这个哈希函数的规则特别简单：
+    - 将数值为 i 的数映射到下标为 i - 1 的位置
+    - f(nums[i]) = nums[i] - 1
+
     Args:
         - nums (List[int]): 原数组
 
