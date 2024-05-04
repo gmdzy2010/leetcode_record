@@ -64,8 +64,9 @@ def sort_top_down(
     if not head:
         return head
 
-    # ? 这里为什么
-    # * 如果头节点和尾节点相邻，需要截断他们之间的联系
+    # ! 如果头节点和尾节点相邻，需要截断他们之间的联系
+    # ? 为什么
+    # * 因为最终归并的时候不切断，会导致多余的部分合并到最终链表中
     if head.next == tail:
         head.next = None
         return head

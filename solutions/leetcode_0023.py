@@ -23,7 +23,7 @@ def main(lists: List[ListNode | None]) -> ListNode | None:
     """合并K个链表
 
     使用优先级队列
-    - 优先级队列实际上是小根堆的数组表示，
+    - 优先级队列实际上是小根堆的数组表示
     - 将所有头节点入堆后，每次出堆的即为值最小的节点
     - 需要注意入堆需要节点支持比较操作：
         - ACM模式：直接定义 dunder method -> __lt__(self, obj)
@@ -46,7 +46,6 @@ def main(lists: List[ListNode | None]) -> ListNode | None:
         if node:
             heappush(pq, node)
 
-    # *
     while pq:
         # * 从优先级队列出堆，出堆的节点即为K个头节点中值最小的节点
         min_node = heappop(pq)

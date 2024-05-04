@@ -43,22 +43,19 @@ def get_kth_smallest_of_bst(root: TreeNode | None, k: int) -> int | None:
     stack: List[TreeNode] = []
     while stack or root:
         # * 左边界不断入栈，当到达左边界叶子节点时停止入栈
-        while root:
+        if root:
             stack.append(root)
             root = root.left
 
-        # * 节点不断出栈处理
-        root = stack.pop()
+        else:
+            # * 节点不断出栈处理
+            root = stack.pop()
 
-        # * 每出栈一次，说明距离k缩小一步
-        k -= 1
+            k -= 1
+            if k == 0:
+                return root.val
 
-        # * k值减为零时，返回
-        if k == 0:
-            return root.val
-
-        # * 没有到达k，就继续
-        root = root.right
+            root = root.right
 
     return None
 

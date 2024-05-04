@@ -12,11 +12,16 @@ class ListNode:
 
 
 class LRUCache:
-    """最近最少使用缓存(Least Recently Used)算法的简单实现"""
+    """最近最少使用缓存(Least Recently Used)算法的简单实现
+    - 使用双向链表（键值对）+ 哈希表（缓存）
+    - 从链表头到尾，按访问时间从早到晚（由冷到热）
+    - 任何访问行为都会导致被访问键变热（链表尾部）
+
+    """
 
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.hashmap: Dict[int, ListNode] = {}
+        self.cache: Dict[int, ListNode] = {}
         self.head = ListNode(0)
         self.tail = ListNode(0)
 
@@ -45,15 +50,14 @@ class LRUCache:
         # ..............    node <- self.tail
         self.tail.prev = node
 
-    def _move_node_to_tail(self, key: int):
-        target_node = self.hashmap.get(key)
-        if target_node and target_node.prev and target_node.next:
+    def _move_node_to_tail(self, node: ListNode):
+        if node.prev and node.next:
             # * 从链表中将目标节点摘除
             # target_node.prev <-> target_node.next
-            target_node.next.prev = target_node.prev
-            target_node.prev.next = target_node.next
+            node.next.prev = node.prev
+            node.prev.next = node.next
 
-            self._insert_node_on_tail(target_node)
+            self._insert_node_on_tail(node)
 
     def get(self, key: int) -> int:
         """缓存获取
@@ -69,12 +73,12 @@ class LRUCache:
         Returns:
             int: 缓存的值
         """
-        if key in self.hashmap:
-            self._move_node_to_tail(key)
+        if key in self.cache:
+            node = self.cache[key]
+            self._move_node_to_tail(node)
+            return node.value
 
-        node = self.hashmap.get(key)
-
-        return node.value if node else -1
+        return -1
 
     def put(self, key: int, value: int):
         """缓存更新
@@ -87,15 +91,16 @@ class LRUCache:
             key (int): 缓存的键
             value (int): 缓存的值
         """
-        if key in self.hashmap:
-            self.hashmap[key].value = value
-            self._move_node_to_tail(key)
-            return None
+        if key in self.cache:
+            node = self.cache[key]
+            node.value = value
+            self._move_node_to_tail(node)
+            return
 
-        if len(self.hashmap) == self.capacity:
+        if len(self.cache) == self.capacity:
             most_cold_node = self.head.next
             if most_cold_node:
-                self.hashmap.pop(most_cold_node.key)
+                self.cache.pop(most_cold_node.key)
 
             if self.head.next:
                 self.head.next = self.head.next.next
@@ -103,11 +108,11 @@ class LRUCache:
             if self.head.next:
                 self.head.next.prev = self.head
 
-        new_node = ListNode(key, value)
-        self.hashmap[key] = new_node
-        self._insert_node_on_tail(new_node)
+        node = ListNode(key, value)
+        self.cache[key] = node
+        self._insert_node_on_tail(node)
 
-        return None
+        return
 
 
 if __name__ == "__main__":
