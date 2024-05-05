@@ -47,7 +47,7 @@ def backtracking(s: str, start: int, res: List[str], ans: List[List[str]]):
         - ans (List[List[str]]): 所有可能的分割方案
     """
     size = len(s)
-    if start >= size:
+    if start == size:
         ans.append(res[:])
         return
 

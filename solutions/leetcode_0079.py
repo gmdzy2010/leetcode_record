@@ -2,7 +2,7 @@ from typing import List
 
 
 def main(board: List[List[str]], word: str) -> bool:
-    """搜索单词
+    """搜索单词，回溯法
 
     Args:
         - board (List[List[str]]): 字符二维数组
@@ -11,9 +11,9 @@ def main(board: List[List[str]], word: str) -> bool:
     Returns:
         - bool: 单词是否在二维数组中找到
     """
-    r_size, c_size = len(board), len(board[0])
-    for r in range(r_size):
-        for c in range(c_size):
+    row, col = len(board), len(board[0])
+    for r in range(row):
+        for c in range(col):
             if backtracking(0, r, c, word, board):
                 return True
 
@@ -30,7 +30,7 @@ def backtracking(
     """回溯函数
 
     Args:
-        - i (int): 当前单词的位置
+        - i (int): 当前字符在单词中的位置
         - r (int): 行数
         - c (int): 列数
         - word (str): 待搜索的单词
@@ -39,36 +39,27 @@ def backtracking(
     Returns:
         bool: 二维字符数组当前位置的上下左右有没有字符和单词相等
     """
-    r_size, c_size = len(board), len(board[0])
-    if (
-        r not in range(r_size)
-        or c not in range(c_size)
-        or board[r][c] != word[i]
-    ):
+    row, col = len(board), len(board[0])
+    if r not in range(row) or c not in range(col) or board[r][c] != word[i]:
         return False
 
+    # * 当到达 word 最后一个字符，说明找到了目标单词，停止回溯
     if i == len(word) - 1:
         return True
 
     # * 将当前位置置空，实际上是标记为位置已访问
     board[r][c] = ""
-
-    # * word[i] 已经和 board[r][c] 字符相同，下一步在 (r, c) 的上下左右验证匹配情况
-    # ! 任意一个方向匹配上，都会引发这个方向上的继续递归
-    left = backtracking(i + 1, r, c - 1, word, board)
-    right = backtracking(i + 1, r, c + 1, word, board)
-    up = backtracking(i + 1, r - 1, c, word, board)
-    down = backtracking(i + 1, r + 1, c, word, board)
-
-    # * 回撤当前位置
-    # ! 向四个方向递归如果到了不符合条件的位置，需要回退到当前位置的原始状态
+    L = backtracking(i + 1, r, c - 1, word, board)
+    R = backtracking(i + 1, r, c + 1, word, board)
+    U = backtracking(i + 1, r - 1, c, word, board)
+    D = backtracking(i + 1, r + 1, c, word, board)
     board[r][c] = word[i]
 
     # ? 这里为啥要返回四个方向的或结果
     # * 有3层含义
     # * 1. 任意一个方向匹配上，返回 True，意味着还可以继续匹配
     # * 2. 如果到了这一步四个方向都返回 False，说明没找到这个单词，可以结束搜索了
-    return left or right or up or down
+    return L or R or U or D
 
 
 if __name__ == "__main__":
