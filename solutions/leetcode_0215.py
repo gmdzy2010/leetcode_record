@@ -1,3 +1,4 @@
+import random
 from typing import List
 
 
@@ -59,6 +60,30 @@ def partition(arr: List[int], L: int, R: int) -> int:
     arr[i + 1], arr[R] = arr[R], arr[i + 1]
 
     return i + 1
+
+
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        return self.quick_select(nums, k)
+
+    def quick_select(self, nums, k):
+        pivot = random.choice(nums)
+        gt, eq, lt = [], [], []
+        for n in nums:
+            if n > pivot:
+                gt.append(n)
+            elif n < pivot:
+                lt.append(n)
+            else:
+                eq.append(n)
+
+        if k <= len(gt):
+            return self.quick_select(gt, k)
+
+        if len(nums) - len(lt) < k:
+            return self.quick_select(lt, k - len(nums) + len(lt))
+
+        return pivot
 
 
 if __name__ == "__main__":
