@@ -10,7 +10,7 @@ def main(n: int) -> int | float:
     Returns:
         - int | float: 得到 n 需要的最少平方数
     """
-    # * dp[i] 代表凑成总额为 i 的最少金币数量
+    # * dp[i] 代表凑成 i->背包 的最少 平方数->物品 数量
     dp = [float("inf")] * (n + 1)
 
     dp[0] = 0
@@ -19,10 +19,12 @@ def main(n: int) -> int | float:
     for i in range(1, int(sqrt(n)) + 1):
         x = i * i
         for j in range(x, n + 1):
-            if dp[j - x] != float("inf"):
-                dp[j] = min(dp[j], dp[j - x] + 1)
+            # * 取两者之间更小的：
+            # * 不使用当前平方数
+            # * 使用当前平方数 i*i，然后在此基础上加 1（因为用了 i*i），即 f[j-i*i] + 1
+            dp[j] = min(dp[j], dp[j - x] + 1)
 
-    return -1 if dp[-1] == float("inf") else dp[-1]
+    return dp[-1]
 
 
 if __name__ == "__main__":
