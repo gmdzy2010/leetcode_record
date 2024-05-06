@@ -38,10 +38,6 @@ def main(nums: List[int]) -> int:
             # * 更新当前能到的最远距离
             curr_max_i = next_max_i
 
-            # * 如果下一个位置已经到了或者超过了终点，停止循环
-            if next_max_i >= size - 1:
-                break
-
         i += 1
 
     return ans
