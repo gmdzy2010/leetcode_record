@@ -24,12 +24,8 @@ def can_partition_dp_1D(nums: List[int]) -> bool:
         - bool: 数组是否可以拆分成等和的两部分
     """
     target = sum(nums)
-
-    # * 如果数组求和的一半不是 0，说明无论如何不可能分成两部分和相等的数组
     if target % 2 == 1:
         return False
-
-    size = len(nums)
 
     # * 先得到拆分成两部分的目标和
     target = target // 2
@@ -37,10 +33,10 @@ def can_partition_dp_1D(nums: List[int]) -> bool:
     # * dp[i] 代表容量是 i 的背包可以凑出来的最大和
     dp = [0] * (target + 1)
 
-    for i in range(size):
+    for num in nums:
         # ! 倒着遍历可以防止物品（nums中的数字）重复选取
-        for j in range(target, nums[i] - 1, -1):
-            dp[j] = max(dp[j], dp[j - nums[i]] + nums[i])
+        for i in reversed(range(num, target + 1)):
+            dp[i] = max(dp[i], dp[i - num] + num)
 
     return target == dp[target]
 
