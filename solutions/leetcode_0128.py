@@ -16,8 +16,8 @@ def main(nums: List[int]) -> int:
     nums = set(nums)  # type: ignore
 
     for num in nums:
-        # ! 这个条件判断可以去掉重复的查找
-        # * 如果当前数字的前一个数字在集合中，说明以 num - 1 开始的连续数字已经找过了
+        # ! 去掉重复的查找
+        # * 如果当前数字的前一个数字在集合中，后续的查找一定会包含当前数字
         if num - 1 in nums:
             continue
 
