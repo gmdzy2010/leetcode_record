@@ -4,7 +4,7 @@ from typing import Set
 def main(string: str) -> int:
     """无重复字符的最长子串
 
-    解题方法：滑动窗口
+    解题方法：滑动窗口（快慢指针）
 
     概念约定
     - string：原字符串
@@ -30,34 +30,34 @@ def main(string: str) -> int:
     if size < 2:
         return size
 
-    # * 用集合存储当前窗口内的无重复字符
+    # * 窗口内的无重复字符
     unique: Set[str] = set()
 
-    # * 当前无重复字符子串最大长度
+    # * 无重复字符子串最大长度
     ans = 0
 
-    # * 右指针
-    R = 0
+    # * 慢指针和快指针
+    S, F = 0, 0
 
-    # * 用左指针 L 在整个字符上遍历
-    for L in range(size):
+    while F < size:
         # * 移动 R
         # 当 R 处字符不在窗口字符集合中时加入，并继续向右找，到 R 处字符已经在集合中时停止
         # 实际上循环结束的时候，右指针已经到了下一个位置
-        while R < size and string[R] not in unique:
-            unique.add(string[R])
-            R += 1
+        while F < size and string[F] not in unique:
+            unique.add(string[F])
+            F += 1
 
-        # * 此时的子串长度即为以L开头的无重复字符子串最大长度
-        ans = max(ans, R - L)
+        # * 此时 s[R] 重复，开始统计长度
+        ans = max(ans, F - S)
 
-        # * 如果 L 之后的子串长度已经小于或者等于最大无重复字符子串长度，没必要再找了
-        if size - L + 1 <= ans:
+        # * 如果 S 之后的子串长度已经小于或者等于最大无重复字符子串长度，没必要再找了
+        # ? 这里为什么使用的是慢指针，应该是快指针以后的区间比 ans 短直接返回？
+        if size - S + 1 <= ans:
             return ans
 
         # * 从窗口字符集合中移除 L 处字符
-        # 为下一轮寻找以 L + 1 处字符开头的无重复字符子串做准备
-        unique.remove(string[L])
+        unique.remove(string[S])
+        S += 1
 
     return ans
 
